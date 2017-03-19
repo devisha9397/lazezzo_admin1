@@ -82,8 +82,8 @@ include 'part1.php';
 																	{
 																		if(move_uploaded_file($_FILES["txtofferphoto"]["tmp_name"],$menupic_path))
 																		{
-																			$menupic_path="menuphotos/".$_FILES["txtofferphoto"]["name"];
-																	$obj=new Database();
+																			$menupic_path=$_FILES["txtofferphoto"]["name"];
+																	$obj=new database();
 																	$res=$obj->addMenuphoto($menu_id,$menupic_path,$restid);
 																	
 																	if($res==1)

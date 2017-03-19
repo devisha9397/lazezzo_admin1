@@ -3,8 +3,8 @@ session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
-//$discount_id=$_REQUEST["id"];
-$discount_id=$_SESSION["discount_id"];
+$discount_id=$_REQUEST["id"];
+//$discount_id=$_SESSION["discount_id"];
 
 ?>
 
@@ -38,27 +38,17 @@ $discount_id=$_SESSION["discount_id"];
 
 <?php
 include 'part1.php';
-
-
-
 ?>
 
-<div class="outter-wp">
-						<div class="sub-heard-part"></div>
-							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="7" color="blue">Update Offer  </font></center></h3>
-									<div class="graph">
-										<div class="tables">		
-												
 													<?php
-														$obj=new Database();
+														$obj=new database();
 														$res=$obj->offerEdit1($discount_id);
 														while($row=mysqli_fetch_array($res))
 														{
-															$discount_id=$row["discount_id"];
+														//	$discount_id=$row["discount_id"];
 															$discount_desc=$row["discount_desc"];	
 															$restid=$row["fk_rest_id"];
-															$_SESSION["discount_id"]=$discount_id;
+															//$_SESSION["discount_id"]=$discount_id;
 														//	$_SESSION[""]=$discount_id;
 															echo $discount_desc;
 															echo $discount_id;
@@ -68,58 +58,48 @@ include 'part1.php';
 														
 													?>		
 				
-									
-									
-									<div class="outter-wp">
-						<div class="sub-heard-part"></div>
-							<div class="graph-visual tables-main">
-								
-									<div class="graph">
-										<div class="tables">		
-			
-			
-										<div class="set-1">
-											<div class="graph-2 general">
-												<div class="grid-1">
-													<div class="form-body">
-													<form class="form-horizontal" method="post" action="offeredit.php" >
-															<br>
-																<center>		
-														<div class="form-group">
-														<div class="col-sm-3">
-															<label for="focusedinput" ><font size="3" color="black"><b>Offer Description</b></font><font color="red">*</font></label>
-															</div>
-														</div>
-														
-														<div class="col-sm-7">
-														 		<?php
-																echo '<textarea rows="12" cols="60" name="txtoffer">';
-																
-																
-														//		echo $discount_desc; 
-														echo '</textarea>';
-															?>
-																
-																
-															</div>
-														
-														<div class="form-group">
-																<div class="col-sm-8">
-																	<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-																	<button type="submit" class="btn btn-default" value="Update" name="btnupdate" >Update</button>
-																</div>
-															</div>
-														</center>
+				
+				
+				
+		<form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+         <div class="content-section">
+                <div class="container-liquid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="sec-box">
+                                <a class="closethis">Close</a>
+                                <header>
+                                    <h2 class="heading">Edit Discount Here</h2>
+                                </header>
+                                <div class="contents">
+                                    <a class="togglethis">Toggle</a>
+                                    <section class="boxpadding editor-box">
+                                    	<script type="text/javascript" src="assets/js/wysihtml5-0.3.0_rc2.min.js"></script>
+										<script type="text/javascript" src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
+										<script>
+                                        	$(document).ready(function(){
+												$('#some-textarea').wysihtml5();
+											});
+                                        </script>
+                                        <textarea id="some-textarea" class="form-control" name="txtoffer" placeholder="Enter text ...">
+											
+												<?php echo $discount_desc; ?>
+										</textarea>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+         
+		 <center>
+		 	<div class="form-group">
+			<div class="col-sm-8">
+			<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+			<button type="submit" class="btn btn-success" value="Update" name="btnupdate" >Update</button>
+			</div>
+			</div>
+			</center>
 															
-														</div>
-															</form>
-													</div>
-												</div>
-											</div>
-										</div>
-										</div>
-									</div>
-							</div>
 <?php
 if(isset($_POST["btnupdate"]))
 {
@@ -137,20 +117,18 @@ if(isset($_POST["btnupdate"]))
 		header('location:offerdisplay.php');
 	}
 }									
+?>													
+				
 									
-	?>								
-										</div>
-										</div>
-									</div>
-							</div>
-
-
+									
+	
 <?php
 include 'part2.php';
 
 
 
 ?>
+						</form>
 </body>
 
 </html>

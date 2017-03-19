@@ -33,43 +33,52 @@
                             <a href="#layouts" class="layouts">Orders</a>
                             <ul>
 							  <li><a href="allordersbyid.php">All Orders</a></li>
-                               <li><a href="orderstobeapproved.php">Orders to be Approved</a></li>
+                               <li><a href="orderstobeapproved.php">Orders to be Approved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge" style="background-color:tomato;"><?php 
+
+									$obj1=new database();
+									$res=$obj1->getOrderCount(0,$restid);
+									while($row=mysqli_fetch_array($res))
+									{
+										echo $row["cnt"];
+
+									}
+							   ?></span></a></li>
                               <li><a href="approved.php">Approved Orders</a></li>
                                <li><a href="disapproved.php">Disapproved Orders</a></li>
-                               <li><a href="pastorders.php">Past Orders</a></li>
+                               
                             </ul>
                         </li>
                         <li>
-                        <a href="#ui-elements" class="ui-elements">Elements</a>
-                        <ul>
-                            <li><a href="tiles.html">Tiles</a></li>
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="tabs.html">Tabs and Accordion</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="tooltip.html">Tooltip and Popovers</a></li>
-                            <li><a href="navbar.html">Navbars</a></li>
-                            <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
-                            <li><a href="pagination.html">Pagination</a></li>
-                            <li><a href="progressbar.html">Progress bars</a></li>
-                            <li><a href="blockquotes.html">Blockquotes</a></li>
-                            <li><a href="modals.html">Modals</a></li>
-                            <li><a href="alerts.html">Alerts</a></li>
-                            <li><a href="labels.html">Labels</a></li>
-                            <li><a href="comments.html">Comments</a></li>
-                        </ul>
+                        <a href="menuitems.php" class="ui-elements">Menu Items</a>
+                        
                     </li>
                         <li>
-                            <a href="#mailbox" class="mailbox">Mailbox<span class="label label-custom1">05</span></a>
+						
+                            <a href="#mailbox" class="mailbox"> BookTables</a>
                             <ul>
-                                <li><a href="inbox.html">Inbox</a></li>
-                                <li><a href="compose.html">Compose</a></li>
+                                <li><a href="allbooktablesbyid.php">All Booktables</a></li>
+                                <li><a href="booktablestobeapproved.php">Requests To Be Approved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge" style="background-color:tomato;"><?php 
+
+									$obj2=new database();
+									$res2=$obj2->getBooktableCount(0,$restid);
+									while($row=mysqli_fetch_array($res2))
+									{
+										echo $row["cnt"];
+
+									}
+							   ?></span>
+								
+								
+								
+								
+								</a></li>
                                 <li><a href="emaildetails.html">Email Detail</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#forms" class="forms">Offers</a>
                             <ul>
-                                <li><a href="addoffer.php">Add Offer</a></li>
+                                <li><a href="addoffer1.php">Add Offer</a></li>
                                 <li><a href="offerdisplay.php">All Offres</a></li>
                                 <li><a href="checkboxes.html">Custom Checkboxes</a></li>
                                 <li><a href="switches.html">On/Off Switches</a></li>
@@ -156,9 +165,28 @@
                 </div>
                 <!-- Search Section End -->
                 <!-- Header Top Navigation Start -->
-				<div class="col-md-offset-6">
+				<div class="col-md-offset-5">
                 <nav class="topnav">
                     <ul id="nav1">
+					<!--likes pr restaurant-->
+					<li>
+						<a href="#"><i class="glyphicon glyphicon-heart" style="color:red;"></i>Likes<span>
+						
+						
+						<?php 
+
+									$obj2=new database();
+									$res2=$obj2->getfavCount(0,$restid);
+									while($row=mysqli_fetch_array($res2))
+									{
+										echo $row["cnt"];
+
+									}
+							   ?>
+						
+						
+						</span></a>
+					</li>
                         <li class="tasks">
                         	<a href="#"><i class="glyphicon glyphicon-check"></i>Tasks<span>(04)</span></a>
                             <div class="popdown">
@@ -226,33 +254,58 @@
                                 <div class="clearfix"></div>
                             </div>
                         </li>
+						
                         <li class="notifi">
-                        	<a href="#"><i class="glyphicon glyphicon-bell"></i>Notifications</a>
+                        	<a href="#"><i class="glyphicon glyphicon-bell"></i>Notifications <span class="badge" style="background-color:tomato ;"><?php 
+
+									$obj1=new database();
+									$res=$obj1->getOrderCount(0,$restid);
+									while($row=mysqli_fetch_array($res))
+									{
+										$cnt=$row["cnt"];
+
+									}
+									$obj2=new database();
+									$res2=$obj2->getBooktableCount(0,$restid);
+									while($row2=mysqli_fetch_array($res2))
+									{
+										$cnt1=$row2["cnt"];
+
+									}
+									$ans=$cnt+$cnt1;
+									echo $ans;
+							   ?></span></a>
                             <div class="popdown">
                             	<div class="notificationlist">
-                                	<ul>
-                                    	<li>
-                                        	<h6><a href="#">Vel lundium natoque</a></h6>
-                                            <p>In parturient! Vel lundium natoque</p>
-                                            <span><i class="glyphicon glyphicon-time"></i>2hrs ago</span>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a></h6>
-                                            <p>In parturient! Vel lundium natoque</p>
-                                            <span><i class="glyphicon glyphicon-time"></i>2hrs ago</span>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a></h6>
-                                            <p>In parturient! Vel lundium natoque</p>
-                                            <span><i class="glyphicon glyphicon-time"></i>2hrs ago</span>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a></h6>
-                                            <p>In parturient! Vel lundium natoque</p>
-                                            <span><i class="glyphicon glyphicon-time"></i>2hrs ago</span>
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="viewall">View All Notifications</a>
+								
+								<?php
+								
+								$obj1=new database();
+									$res=$obj1->getOrderCount(0,$restid);
+									while($row=mysqli_fetch_array($res))
+									{
+											echo '<ul>';
+											echo '<li>';
+                                        	echo '<a href="orderstobeapproved.php"><h6>Orders To Be Approved : &nbsp;<span class="badge" style="background-color:tomato ;"> '.$row["cnt"].'</span></h6></a>';
+                                           echo '</li>';
+											echo '</ul>';
+
+									}
+								
+									$obj2=new database();
+									$res=$obj2->getBooktableCount(0,$restid);
+									while($row=mysqli_fetch_array($res))
+									{
+											echo '<ul>';
+											echo '<li>';
+                                        	echo '<a href="booktablestobeapproved.php"><h6>Booktables To Be Approved : &nbsp;<span class="badge" style="background-color:tomato ;"> '.$row["cnt"].'</span></h6></a>';
+                                           echo '</li>';
+											echo '</ul>';
+
+									}
+                                	
+									?>
+                                   
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -265,9 +318,9 @@
                             <div class="popdown popdown-right settings">
                             	<nav>
                                 	<a href="#"><i class="glyphicon glyphicon-user"></i>Your Profile</a>
-                                    <a href="#"><i class="glyphicon glyphicon-pencil"></i>Edit Account</a>
-                                    <a href="#"><i class="glyphicon glyphicon-question-sign"></i>Get Help</a>
-                                    <a href="#"><i class="glyphicon glyphicon-log-out"></i>Log out</a>
+                                    <a href="editprofile.php"><i class="glyphicon glyphicon-pencil"></i>Edit Account</a>
+                                    <a href="editrestdetails.php"><i class="glyphicon glyphicon-pencil"></i>Edit restaurant Detalis</a>
+                                    <a href="logout.php"><i class="glyphicon glyphicon-log-out"></i>Log out</a>
                                 </nav>
                             </div>
                         </li>

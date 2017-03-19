@@ -7,7 +7,7 @@
 																
 	if($res==1)
 	{
-		header('location:pastevent.php');
+		header('location:approved.php');
 	}
 
 ?>

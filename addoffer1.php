@@ -40,42 +40,45 @@ include 'part1.php';
 
 ?>
 
-
-<div class="outter-wp">
-						<div class="sub-heard-part"></div>
-							<div class="graph-visual tables-main">
-								<h2 class="inner-tittle two"><center><font size="7" color="red">Add Offer  </font></center></h2>
-									<div class="graph">
-										<div class="tables">		
-			
-			
-										<div class="set-1">
-											<div class="graph-2 general">
-												<div class="grid-1">
-													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addoffer.php" enctype="multipart/form-data">
-															<br>
-																<center>		
-														<div class="form-group">
-														<div class="col-sm-3">
-															<label for="focusedinput" ><font size="3" color="black"><b>Offer Description</b></font><font color="red">*</font></label>
-															</div>
-														</div>
-														
-														<div class="col-sm-7">
-																<textarea rows="12" cols="63" name="txtoffer"  >
-																
-																</textarea>
-															</div>
-														
-														<div class="form-group">
-															<div class="col-sm-8">
-																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-																<button type="submit" class="btn btn-success" value="Add" name="btnadd" >Add</button>
-															</div>
-														</div>
-														</center>
-															<?php 
+				<form class="form-horizontal" method="post" action="addoffer1.php" enctype="multipart/form-data">
+         <div class="content-section">
+                <div class="container-liquid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sec-box">
+                                <a class="closethis">Close</a>
+                                <header>
+                                    <h2 class="heading">Add Discount Here</h2>
+                                </header>
+                                <div class="contents">
+                                    <a class="togglethis">Toggle</a>
+                                    <section class="boxpadding editor-box">
+                                    	<script type="text/javascript" src="assets/js/wysihtml5-0.3.0_rc2.min.js"></script>
+										<script type="text/javascript" src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
+										<script>
+                                        	$(document).ready(function(){
+												$('#some-textarea').wysihtml5();
+											});
+                                        </script>
+                                        <textarea id="some-textarea" class="form-control" name="txtoffer" placeholder="Enter text ...">
+										
+										
+										</textarea>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row End -->
+					<center>
+					<div class="form-group">
+					<div class="col-sm-8">
+					<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+					<button type="submit" class="btn btn-success" value="Add" name="btnadd" >Add</button>
+					</div>
+					</div>
+					</center>
+																				<?php 
 														
 															if(isset($_POST["btnadd"]))
 															{
@@ -84,7 +87,12 @@ include 'part1.php';
 																$fk_rest_id=$restid;
 																$discount_desc=$_POST["txtoffer"];
 																	
-																
+																if (!strlen(trim($_POST['txtoffer'])))
+																{
+																	echo 'plz enter content ';
+																}
+																else
+																{
 																$obj=new Database();
 																$res=$obj->addOffer($discount_id,$fk_rest_id,$discount_desc,$restid);
 																
@@ -99,23 +107,17 @@ include 'part1.php';
 																	echo "error";
 																}
 																}	
-																
+															}
 															
 											
 															
 															
 															?>
-															
-														</div>
-															</form>
-													</div>
-												</div>
-											</div>
-										</div>
-										</div>
-									</div>
-							</div>
 
+
+                </div>
+            </div>
+   
 
 
 <?php
@@ -124,6 +126,7 @@ include 'part2.php';
 
 
 ?>
+</form>
 </body>
 
 </html>

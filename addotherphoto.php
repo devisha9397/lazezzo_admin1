@@ -82,7 +82,7 @@ include 'part1.php';
 																	{
 																		if(move_uploaded_file($_FILES["txtofferphoto"]["tmp_name"],$otherpic_path))
 																		{
-																			$otherpic_path="otherphotos/".$_FILES["txtofferphoto"]["name"];
+																			$otherpic_path=$_FILES["txtofferphoto"]["name"];
 																	$obj=new database();
 																	$res=$obj->addOtherphoto($other_id,$otherpic_path,$restid);
 																	

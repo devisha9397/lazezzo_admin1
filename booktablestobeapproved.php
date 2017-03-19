@@ -40,20 +40,21 @@ include 'part1.php';
 
 ?>
 
-
-					<h3>
+<h3>
 						
 						
 						<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
 					<td><font size="3" color="blue"><b>User Name</b></font>
-					<td><font size="3" color="blue"><b>Item Name</b></font>
-					<td><font size="3" color="blue"><b>Quantity</b></font>
-					<td><font size="3" color="blue"><b>Amount</b></font>
+						<td><font size="3" color="blue"><b>Contact Number</b></font>
 					<td><font size="3" color="blue"><b>Date</b></font>
-					<td><font size="3" color="blue"><b>Delivery Area</b></font>
-					<td><font size="3" color="blue"><b>Delete</b></font>
+					<td><font size="3" color="blue"><b>No Of People</b></font>
+					<td><font size="3" color="blue"><b>Time</b></font>
+					<td><font size="3" color="blue"><b>Additional Request</b></font>
+					<td><font size="3" color="blue"><b>Approve</b></font>
+					<td><font size="3" color="blue"><b>DisApprove</b></font>
+
 				</tr>
 				</thead>
 				
@@ -62,23 +63,23 @@ include 'part1.php';
 						
 						<?php
 						
-//							include 'database.php';
+							//	include 'database.php';
 							$obj=new database();
-							$res=$obj->getallapprovedordersbyflag($restid);
+							$res=$obj->getallbooktablesbyflag($restid);
 							$cnt=mysqli_num_rows($res);
 							
 						while($row=mysqli_fetch_array($res))
 						{
 									echo '<tr>';
-				//	echo '<td><font size="4" color="DarkRed">'.$row["fk_rest_id"].'</font>';
+				
 					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["item_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["quantity"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["total_amount"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["date_of_order"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["delivery_area"].'</font>';
-					echo '<td><a href="orderdel.php?id='.$row["order_id"].'"><button type="submit" class="btn btn-danger">
-					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><font size="4" color="DarkRed">'.$row["mobile_no"].'</font>';
+					echo '<td><font size="4" color="DarkRed ">'.$row["date"].'</font>';
+					echo '<td><font size="4" color="DarkRed ">'.$row["no_of_people"].'</font>';
+					echo '<td><font size="4" color="DarkRed ">'.$row["time"].'</font>';
+					echo '<td><font size="4" color="DarkRed ">'.$row["additional_request"].'</font>';
+					echo '<td><a href="approvebooktable.php?id='.$row["table_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
+					echo '<td><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
 
 					echo '</tr>';
 			
@@ -92,7 +93,6 @@ include 'part1.php';
 						
 						
 						</h3>
-                        
 
 
 

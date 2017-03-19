@@ -41,7 +41,6 @@ include 'part1.php';
 ?>
 
 
-krishma is great
 
 
 <?php

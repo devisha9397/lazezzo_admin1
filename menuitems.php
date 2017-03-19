@@ -1,4 +1,4 @@
-<?php
+   <?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
@@ -39,36 +39,28 @@ include 'part1.php';
 
 
 ?>
+				
 
-
-	<div class="outter-wp">
+				<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h1 class="inner-tittle two"><center><font size="6.8" color="red">Offer Display </font></center></h1>
-								<br>
+							
 									<div class="graph">
-										<div class="tables">		
+										<div class="tables">												
+											
 												
-										
-									<div class="col-md-8 col-md-offset-11">		
-								<a href="addoffer1.php"><button  type="submit" class="btn btn-primary">
-									<span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button></a>
-									</div>
-										
-							<br><br>				
-												
-																		
+				<div class="col-md-8 col-md-offset-11">		
+				<a href="addmenuitems.php"><button  type="submit" class="btn btn-primary">
+				<span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button></a>
+				</div>
+				<br>							
 				<table class="table table-bordered" id="dataTable">
 				<thead>
 				
 				<tr class="active">
 				 
-					<th><font size="3" color="blue"><b>Offer Description</b></font>
-					
-					
-					
-
-					
+					<th><font size="3" color="blue"><b>Item Name</b></font>
+					<th><font size="3" color="blue"><b>Item Price</b></font>
 					<th><font size="3" color="blue"><b>Update</b></font>
 					<th><font size="3" color="blue"><b>Delete</b></font>
 				</tr>
@@ -79,15 +71,16 @@ include 'part1.php';
 							
 
 				$obj=new Database();
-				$res=$obj->getAllOffers($restid);
+				$res=$obj->getAllMenuitem($restid);
 				while($row=mysqli_fetch_array($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["discount_desc"].'</font>';
-					echo '<td><a href="offeredit.php?id='.$row["discount_id"].'"><button type="submit" class="btn btn-success">
-<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
-					echo '<td><a href="offerdel.php?id='.$row["discount_id"].'"><button type="submit" class="btn btn-danger">
-<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><font size="4" color="black">'.$row["item_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["item_price"].'</font>';
+					echo '<td><a href="menuitemedit.php?id='.$row["item_id"].'"><button type="submit" class="btn btn-success">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="menuitemdel.php?id='.$row["item_id"].'"><button type="submit" class="btn btn-danger">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 				
 				
 					
@@ -105,6 +98,8 @@ include 'part1.php';
 					</div>
 
 
+
+		
 <?php
 include 'part2.php';
 
