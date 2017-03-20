@@ -4,6 +4,11 @@ include 'database.php';
 $restid=$_SESSION["restid"];
 
 $email=$_SESSION["email"];
+if($email=="")
+ {
+	 header('Location:index.php');	 
+ }
+
 ?>
 
 <!DOCTYPE HTML>

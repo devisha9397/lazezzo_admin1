@@ -311,6 +311,7 @@ class database
 			return $res;
 			database::disconnect();
 	}
+	
 	public function getmenuitemDetail($item_id)
 	{
 		$con=database::connect();
@@ -335,6 +336,26 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	
+	public function getfkuseremailbyOrderid($order_id)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select o.*,r.* from order_tbl as o,restaurant_tbl as r where  o.fk_rest_id=r.rest_id  and order_id='$order_id'");
+		return $res;
+		database::disconnect();
+
+	}
+	
+	public function getfkuseremailbyBooktableid($table_id)
+	{
+		
+		$con=database::connect();
+		$res=mysqli_query($con,"select b.*,r.* from booktable_tbl as b,restaurant_tbl as r where  b.fk_rest_id=r.rest_id  and table_id='$table_id'");
+		return $res;
+		database::disconnect();
+
+	}
+	
 }
 
 ?>

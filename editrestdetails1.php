@@ -2,6 +2,11 @@
 session_start();
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
+if($email=="")
+ {
+	 header('Location:index.php');	 
+ }
+
 	
 ?>
    <?php 

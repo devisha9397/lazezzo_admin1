@@ -1,6 +1,11 @@
 <?php
 session_start();
 $email=$_SESSION["email"];
+if($email=="")
+ {
+	 header('Location:index.php');	 
+ }
+
 ?>
    <?php 
 

@@ -5,7 +5,7 @@ $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
 if($email=="")
  {
-	 header('Location:../index.php');
+	 header('Location:index.php');
 	 
  }
 ?>

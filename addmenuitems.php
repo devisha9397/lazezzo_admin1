@@ -3,6 +3,11 @@ session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
+if($email=="")
+ {
+	 header('Location:index.php');	 
+ }
+
 ?>
 
 <!DOCTYPE HTML>
@@ -45,20 +50,38 @@ include 'part1.php';
   <div class="container-liquid">
   
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-3">
 <div class="form-group">
+
     <label> Enter Menu Item </label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem" aria-describedby="emailHelp">
-  </div>
+	<?php
+	$i=0;
+	while($i<5)
+	{
+    echo'<input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem[]" aria-describedby="emailHelp"><br>';
+	$i++;
+	}
+	?>
   </div>
   </div>
   
   
-  <div class="row">
-<div class="col-md-4">
+ 
+<div class="col-md-9">
 <div class="form-group">
+
 <label> Enter Item Price </label>
-<input type="number" class="form-control" id="exampleInputEmail1" name="txtprice" aria-describedby="emailHelp">
+<?php
+echo '<div class="col-md-5">';
+	$i=0;
+	while($i<5)
+	{
+echo'<input type="number" class="form-control" id="exampleInputEmail1" name="txtprice[]" aria-describedby="emailHelp"><br>';
+$i++;
+	}
+	echo '</div>';
+	?>
+	
 </div>
 </div>
 </div>
@@ -83,19 +106,27 @@ include 'part1.php';
 						$item_name=$_POST["txtmenuitem"];
 						$item_price=$_POST["txtprice"];
 						
-						if (!strlen(trim($_POST['txtmenuitem'])))
+						$obj=new Database();
+						foreach(array_combine($item_name,$item_price) as $key=>$value)
+						{
+						// foreach ($item_name as $key => $value and $item_price as $key1 => $value1) {
+						//$res=$obj->addmenuItem();
+						// $grade += $value;
+  
+
+						
+					/*	if (!strlen(trim($_POST['txtmenuitem'])))
 						{
 						echo 'plz enter content ';
-						}
-						else
-						{
-						$obj=new Database();
-						$res=$obj->addmenuItem($item_id,$fk_rest_id,$item_name,$item_price);
+						}*/
+						//else
+						//{
+						
+						$res=$obj->addmenuItem($item_id,$fk_rest_id,$key,$value);
 																
 						if($res==1)
 						{
 																
-						//$_SESSION["item_id"]=$item_id;
 						header('location:menuitems.php');
 						}
 						else
@@ -103,7 +134,8 @@ include 'part1.php';
 						echo "error";
 						}
 						}	
-						}
+						//}
+					}
 				?>
 					
 

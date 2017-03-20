@@ -4,6 +4,11 @@ include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
 $discount_id=$_REQUEST["id"];
+if($email=="")
+ {
+	 header('Location:index.php');
+ }
+
 //$discount_id=$_SESSION["discount_id"];
 
 ?>
