@@ -7,7 +7,8 @@ if($email=="")
  {
 	 header('Location:index.php');	 
  }
-
+ $cat=$_SESSION["cat"];
+$cou=$_SESSION["cou"];
 ?>
 
 <!DOCTYPE HTML>
@@ -40,10 +41,11 @@ if($email=="")
 
 <?php
 include 'part1.php';
-
-
-
 ?>
+
+
+
+
 
 
  <form class="form-horizontal" method="post" action="addmenuitems.php" enctype="multipart/form-data">
@@ -52,11 +54,11 @@ include 'part1.php';
 <div class="row">
 <div class="col-md-3">
 <div class="form-group">
-
-    <label> Enter Menu Item </label>
+   <label> Enter Menu Item </label>
 	<?php
+	//echo $cat;	
 	$i=0;
-	while($i<5)
+	while($i<$cou)
 	{
     echo'<input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem[]" aria-describedby="emailHelp"><br>';
 	$i++;
@@ -66,15 +68,16 @@ include 'part1.php';
   </div>
   
   
+  
  
-<div class="col-md-9">
+<div class="col-md-8">
 <div class="form-group">
 
 <label> Enter Item Price </label>
 <?php
 echo '<div class="col-md-5">';
 	$i=0;
-	while($i<5)
+	while($i<$cou)
 	{
 echo'<input type="number" class="form-control" id="exampleInputEmail1" name="txtprice[]" aria-describedby="emailHelp"><br>';
 $i++;
@@ -95,19 +98,19 @@ $i++;
 					</div>
 					</div>
 					</center>
-					
+</div>					
 				<?php
 					
 					if(isset($_POST["btnadd"]))
 					{
 					
-						$item_id="NULL";
-						$fk_rest_id=$restid;
-						$item_name=$_POST["txtmenuitem"];
-						$item_price=$_POST["txtprice"];
+						$subcui_id="NULL";
+						//$fk_cui_id=$restid;
+						$subcui_name=$_POST["txtmenuitem"];
+						$subcui_price=$_POST["txtprice"];
 						
-						$obj=new Database();
-						foreach(array_combine($item_name,$item_price) as $key=>$value)
+						$obj=new database();
+						foreach(array_combine($subcui_name,$subcui_price) as $key=>$value)
 						{
 						// foreach ($item_name as $key => $value and $item_price as $key1 => $value1) {
 						//$res=$obj->addmenuItem();
@@ -121,8 +124,10 @@ $i++;
 						}*/
 						//else
 						//{
-						
-						$res=$obj->addmenuItem($item_id,$fk_rest_id,$key,$value);
+						//echo $key;
+						//echo $value;
+						//echo $cat;
+						$res=$obj->addsubcui($subcui_id,$cat,$key,$value,$restid);
 																
 						if($res==1)
 						{
@@ -142,12 +147,12 @@ $i++;
 
 </form>
 
+
 <?php
 include 'part2.php';
 
-
-
 ?>
+
 </body>
 
 </html>

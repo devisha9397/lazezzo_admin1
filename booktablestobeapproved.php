@@ -87,7 +87,7 @@ include 'part1.php';
 					echo '<td><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
 
 					echo '</tr>';
-			
+ 			
 						}
 						
 						?>

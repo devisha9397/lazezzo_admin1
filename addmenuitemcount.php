@@ -1,9 +1,8 @@
-   <?php
+  <?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
-$item_id=$_REQUEST["id"];
 if($email=="")
  {
 	 header('Location:index.php');	 
@@ -41,95 +40,78 @@ if($email=="")
 
 <?php
 include 'part1.php';
-
-
-
 ?>
 
-<?php
+<form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+  <div class="container-liquid">
+  
+  
+  
+  
+   <div class="row">
+<div class="col-md-4">
+<div class="input-group">
+<label for="exampleInputPassword1">Menu Category</label>
+<select class="form-control" name="txtcategory">
 
-	$obj=new database();
-	$res=$obj->getmenuitemDetail($item_id);
-	while($row=mysqli_fetch_array($res))
-	{
-		$item_name=$row["item_name"];
-		$item_price=$row["item_price"];
-	}
+  <?php 
+  	
+  $obj=new database();
+  $res=$obj->getallsubcusines();
+  while($row=mysqli_fetch_array($res))
+  {
+		
+echo '<option   value="'.$row["cui_id"].'">'.$row["cui_name"].'</option>';
 
+
+  }
 ?>
+	  </select>
+	
 
-
-<form action="#" method="post">
-<div class="row">
-<div class="col-md-4">
-
-
-
-<div class="form-group">
-    <label> Item Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $item_name; ?>"  aria-describedby="emailHelp">
-  </div>
-  </div>
-  </div>
-
+</div>
+</div>
+</div>
+ 
+  
+  
   
 <div class="row">
-<div class="col-md-4">
-
+<div class="col-md-5">
 <div class="form-group">
-    <label> Item Price</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" name="txtprice"  value="<?php echo $item_price; ?>"  aria-describedby="emailHelp">
+
+<label> How many Items You want to Enter? </label>
+<input type="number" class="form-control" id="exampleInputEmail1" name="txtcnt" aria-describedby="emailHelp"><br>
+
   </div>
   </div>
-  </div>  
-  
-			<center>
-		 	<div class="form-group">
-			<div class="col-sm-8">
-			<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-			<button type="submit" class="btn btn-success" value="Update" name="btnupdate" >Update</button>
-			</div>
-			</div>
-			</center>
+  </div>
+
 
   
-</form>
-
-
-<?php
-if(isset($_POST["btnupdate"]))
-{
-
-		$item_name=$_POST["txtname"];
-		$item_price=$_POST["txtprice"];
-		if (!strlen(trim($_POST['txtname'])) || !strlen(trim($_POST['txtprice'])) )
-		{
-			echo 'plz enter content ';
-		}
-	else
-	{		
-	$obj=new database();
-	$res=$obj->MenuitemEdit($item_id,$restid,$item_name,$item_price);
-	if($res==1)
-	{
-		echo "done";
-		header('location:menuitems.php');
-	}
-	else
-	{
-		echo "something went wrong";
-	}
-}	
-}								
-?>													
-
-
-
+  </div>
+  
+  <center>
+					<div class="form-group">
+					<div class="col-sm-8">
+					<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+					<button type="submit" class="btn btn-success" value="Add" name="btnaddd" >Add</button>
+					</div>
+					<?php
+					
+					if(isset($_POST['btnaddd']))
+					{
+						$_SESSION["cat"]=$_POST['txtcategory'];
+						$_SESSION["cou"]=$_POST['txtcnt'];
+						
+						header("location:addmenuitems.php");
+					}
+					
+					?>
+					</div>
+					</center>
 <?php
 include 'part2.php';
-
-
-
 ?>
 </body>
 

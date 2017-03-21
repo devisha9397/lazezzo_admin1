@@ -3,6 +3,7 @@ session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
+
 if($email=="")
  {
 	 header('Location:index.php'); 
@@ -55,7 +56,7 @@ include 'part1.php';
 											
 												
 				<div class="col-md-8 col-md-offset-11">		
-				<a href="addmenuitems.php"><button  type="submit" class="btn btn-primary">
+				<a href="addmenuitemcount.php"><button  type="submit" class="btn btn-primary">
 				<span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button></a>
 				</div>
 				<br>							
@@ -76,16 +77,16 @@ include 'part1.php';
 							
 
 				$obj=new Database();
-				$res=$obj->getAllMenuitem($restid);
+				$res=$obj->getAllSubcui($restid);
 				while($row=mysqli_fetch_array($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["item_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["item_price"].'</font>';
-					echo '<td><a href="menuitemedit.php?id='.$row["item_id"].'"><button type="submit" class="btn btn-success">
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
-					echo '<td><a href="menuitemdel.php?id='.$row["item_id"].'"><button type="submit" class="btn btn-danger">
-					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
+		//			echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
+			//		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+				//	echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
+					//<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 				
 				
 					

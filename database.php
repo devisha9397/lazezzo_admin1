@@ -296,18 +296,18 @@ class database
 		database::disconnect();
 	}
 	
-	public function addmenuItem($item_id,$fk_rest_id,$item_name,$item_price)
+	public function addsubcui($subcui_id,$cat,$key,$value,$restid)
 	{
 			$con=database::connect();
-			$res=mysqli_query($con,"insert into menuitem_tbl values('$item_id','$fk_rest_id','$item_name','$item_price')");
+			$res=mysqli_query($con,"insert into subcui_tbl values('$subcui_id','$cat','$key','$value','$restid')");
 			return $res;
 			database::disconnect();
 	}
 	
-	public function getAllMenuitem($restid)
+	public function getAllSubcui($restid)
 	{
 			$con=database::connect();
-			$res=mysqli_query($con,"select * from menuitem_tbl where fk_rest_id='$restid'");
+			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid'");
 			return $res;
 			database::disconnect();
 	}
@@ -351,6 +351,15 @@ class database
 		
 		$con=database::connect();
 		$res=mysqli_query($con,"select b.*,r.* from booktable_tbl as b,restaurant_tbl as r where  b.fk_rest_id=r.rest_id  and table_id='$table_id'");
+		return $res;
+		database::disconnect();
+
+	}
+	
+	public function getallsubcusines()
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from cusine_tbl");
 		return $res;
 		database::disconnect();
 
