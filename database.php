@@ -16,7 +16,7 @@ class database
 	public function getallordersbyrestid($id)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select o.*,u.*,m.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,menuitem_tbl as m where m.item_id=o.fk_item_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and r.rest_id='$id'");
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and r.rest_id='$id'");
 		return $res;
 		database::disconnect();
 	}
@@ -34,7 +34,7 @@ class database
 	public function getallordersbyflag($id)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select o.*,u.*,m.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,menuitem_tbl as m where m.item_id=o.fk_item_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=0 and r.rest_id='$id' ");
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=0 and r.rest_id='$id' ");
 		return $res;
 		database::disconnect();
 	}
@@ -42,7 +42,7 @@ class database
 		public function getallapprovedordersbyflag($id)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select o.*,u.*,m.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,menuitem_tbl as m where m.item_id=o.fk_item_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=1 and r.rest_id='$id' ");
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=1 and r.rest_id='$id' ");
 		return $res;
 		database::disconnect();
 	}
@@ -68,7 +68,7 @@ class database
 	public function getAllOrderByDisApproved($restid)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select o.*,u.*,m.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,menuitem_tbl as m where m.item_id=o.fk_item_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=2 and r.rest_id='$restid' ");
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=2 and r.rest_id='$restid' ");
 		return $res;
 		database::disconnect();
 	}
@@ -360,6 +360,23 @@ class database
 	{
 		$con=database::connect();
 		$res=mysqli_query($con,"select * from cusine_tbl");
+		return $res;
+		database::disconnect();
+
+	}
+	
+	public function getDOB()
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from user_tbl");
+		return $res;
+		database::disconnect();
+
+	}
+	public function getrestnamebyrestid($restid)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from restaurant_tbl where rest_id='$restid'");
 		return $res;
 		database::disconnect();
 

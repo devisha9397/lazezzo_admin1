@@ -106,7 +106,13 @@
                         <li>
                             <a href="charts.html" class="charts">Charts</a>
                         </li>
-                        
+                        <br>
+					
+						<li>
+						<a href="birthdaymail.php"><button type="submit" class="btn btn-danger">
+						Birthday Special Offers </button></a></li>
+					
+						
                     </ul>
                     <div class="clearfix"></div>
                 </nav>
@@ -309,9 +315,6 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                        </li>
-                        <li class="inbox">
-                        	<a href="inbox.html"><i class="glyphicon glyphicon-envelope"></i>Inbox<span>(03)</span></a>
                         </li>
                         <li class="settings">
                         	<a href="#"><i class="glyphicon glyphicon-wrench"></i>Settings</a>
