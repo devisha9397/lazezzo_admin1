@@ -1,5 +1,7 @@
    <?php
 session_start();
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
@@ -35,6 +37,22 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 </head>
+<style>
+.button {
+    background-color: #F5F3F2; 
+    border: none;
+    color: #555555;
+    padding: 5px 10px;
+    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+</style>
 
 <body>
 
@@ -77,13 +95,26 @@ include 'part1.php';
 							
 
 				$obj=new Database();
-				$res=$obj->getAllSubcui($restid);
+				 if($page=="" || $page=="1")
+				{
+				$page1=0;
+				}
+				else
+				{
+				$page1=($page*10)-10;
+				}
+
+$next_page=$page+1;
+$prev_page=$page-1;
+$first_page=1;
+
+				$res=$obj->getAllSubcui1($restid,$page1);
 				while($row=mysqli_fetch_array($res))
 				{
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
-		//			echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
+					//echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
 			//		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
 				//	echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
 					//<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
@@ -92,11 +123,62 @@ include 'part1.php';
 					
 		
 					echo '</tr>';
-				}						
+				}
+
+				$res1=$obj->getAllSubcui($restid);
+				$cnt=mysqli_num_rows($res1);
+				
+				$a=$cnt/10;
+				$a=ceil($a);
+				$last_page=$a;
+
 				
 				?>
 			</tbody>
 			</table> 
+						<?php
+			echo '<br><center>';
+			if($page==1)
+			{
+				
+			}
+			else 
+			{	
+			echo '<a href="menuitems.php?page='.$first_page.'" style="text-decoration:none;"><button class="button"><<</button></a>';	
+			}
+			if($prev_page==0)
+			{
+				
+			}
+			else
+			{
+		echo '<a href="menuitems.php?page='.$prev_page.'" style="text-decoration:none;"><button class="button">Previous</button></a>';	
+			}
+			
+			for($b=1;$b<=$a;$b++)
+		{
+			echo '<a href="menuitems.php?page='.$b.'" style="text-decoration:none;"><button class="button">'.$b.'</button></a>'; 
+		}
+		
+		if($next_page==$a)
+		{
+			echo '<a href="menuitems.php?page='.$next_page.'" style="text-decoration:none;"><button class="button">Next</button></a>';	
+		}
+		else
+		{	
+		
+		}
+		if($page==$last_page)
+		{
+			
+		}
+		else 
+		{	
+		echo '<a href="menuitems.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';
+		}
+		echo '</center>';
+		?>
+
 			
 										</div>
 									</div>

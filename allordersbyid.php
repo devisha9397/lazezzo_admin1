@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
@@ -35,6 +36,22 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 </head>
+<style>
+.button {
+    background-color: #F5F3F2; 
+    border: none;
+    color: #555555;
+    padding: 5px 10px;
+    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+</style>
 
 <body>
 
@@ -70,7 +87,21 @@ include 'part1.php';
 						
 //							include 'database.php';
 							$obj=new database();
-							$res=$obj->getallordersbyrestid($restid);
+							
+				if($page=="" || $page=="1")
+				{
+				$page1=0;
+				}
+				else
+				{
+				$page1=($page*6)-6;
+				}
+
+$next_page=$page+1;
+$prev_page=$page-1;
+$first_page=1;
+
+							$res=$obj->getallordersbyrestid1($restid,$page1);
 							$cnt=mysqli_num_rows($res);
 							
 						while($row=mysqli_fetch_array($res))
@@ -78,7 +109,7 @@ include 'part1.php';
 									echo '<tr>';
 				//	echo '<td><font size="4" color="black">'.$row["fk_rest_id"].'</font>';
 					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["item_name"].'</font>';
+					echo '<td><font size="4" color="DarkRed ">'.$row["subcui_name"].'</font>';
 					echo '<td><font size="4" color="DarkRed ">'.$row["quantity"].'</font>';
 					echo '<td><font size="4" color="DarkRed ">'.$row["total_amount"].'</font>';
 					echo '<td><font size="4" color="DarkRed ">'.$row["date_of_order"].'</font>';
@@ -86,10 +117,58 @@ include 'part1.php';
 					echo '</tr>';
 			
 						}
-						
+							$res1=$obj->getallordersbyrestid($restid);
+							$cnt1=mysqli_num_rows($res1);
+				$a=$cnt1/6;
+				$a=ceil($a);
+				$last_page=$a;
+
 						?>
 				</tbody>
 				</table> 
+						<?php
+			echo '<br><center>';
+			if($page==1)
+			{
+				
+			}
+			else 
+			{	
+			echo '<a href="allordersbyid.php?page='.$first_page.'" style="text-decoration:none;"><button class="button"><<</button></a>';	
+			}
+			if($prev_page==0)
+			{
+				
+			}
+			else
+			{
+		echo '<a href="allordersbyid.php?page='.$prev_page.'" style="text-decoration:none;"><button class="button">Previous</button></a>';	
+			}
+			
+			for($b=1;$b<=$a;$b++)
+		{
+			echo '<a href="allordersbyid.php?page='.$b.'" style="text-decoration:none;"><button class="button">'.$b.'</button></a>'; 
+		}
+		
+		if($next_page==$a)
+		{
+			echo '<a href="allordersbyid.php?page='.$next_page.'" style="text-decoration:none;"><button class="button">Next</button></a>';	
+		}
+		else
+		{	
+		
+		}
+		if($page==$last_page)
+		{
+			
+		}
+		else 
+		{	
+		echo '<a href="allordersbyid.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';
+		}
+		echo '</center>';
+		?>
+
 			
 						
 						

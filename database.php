@@ -20,6 +20,13 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	public function getallordersbyrestid1($id,$page)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and r.rest_id='$id' LIMIT {$page}, 6");
+		return $res;
+		database::disconnect();
+	}
 	
 	
 	public function getresrownerdetailbyid($id)
@@ -308,6 +315,15 @@ class database
 	{
 			$con=database::connect();
 			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid'");
+			return $res;
+			database::disconnect();
+	}
+	
+	
+	public function getAllSubcui1($restid,$page)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid' LIMIT {$page}, 10");
 			return $res;
 			database::disconnect();
 	}
