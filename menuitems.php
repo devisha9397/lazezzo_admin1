@@ -58,26 +58,30 @@ if($email=="")
 
 
 <?php
-include 'part1.php';
+include '1.php';
+?>
+<form action="" method="post">
 
 
-
+<!-- Search Section Start -->
+                <div class="search-box">
+                    <input type="text" name="term" placeholder="Search Menuitem" />
+                    <input type="submit" value="go" name="btn" />
+					</div>
+                </div>
+                <!-- Search Section End -->
+</form>
+<?php
+include '2.php';
 ?>
 				
-
-				<div class="outter-wp">
-						<div class="sub-heard-part"></div>
-							<div class="graph-visual tables-main">
-							
-									<div class="graph">
-										<div class="tables">												
-											
-												
 				<div class="col-md-8 col-md-offset-11">		
 				<a href="addmenuitemcount.php"><button  type="submit" class="btn btn-primary">
 				<span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button></a>
 				</div>
-				<br>							
+
+				
+				
 				<table class="table table-bordered" id="dataTable">
 				<thead>
 				
@@ -91,10 +95,44 @@ include 'part1.php';
 				</thead>
 				
 				<tbody>
+				
+				
+								<?php
+				$obj=new database();
+				if(isset($_POST["btn"]))
+				{
+					
+				
+
+
+$term = mysql_real_escape_string($_REQUEST['term']);     
+
+$res1=$obj->searchmenuitem($restid,$term); 
+
+while ($row = mysqli_fetch_array($res1)){  
+  
+   echo '<tr>';
+					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
+					echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+				
+					echo '</tr>';
+					}  
+
+
+				}
+?>
+
+				
 				<?php
 							
 
-				$obj=new Database();
+			if(!isset($_POST["btn"]))
+			{
+
 				 if($page=="" || $page=="1")
 				{
 				$page1=0;
@@ -114,14 +152,11 @@ $first_page=1;
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
-					//echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
-			//		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
-				//	echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
-					//<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 				
-				
-					
-		
 					echo '</tr>';
 				}
 
@@ -132,11 +167,14 @@ $first_page=1;
 				$a=ceil($a);
 				$last_page=$a;
 
-				
+			}	
 				?>
 			</tbody>
 			</table> 
 						<?php
+			if(!isset($_POST["btn"]))
+			{
+
 			echo '<br><center>';
 			if($page==1)
 			{
@@ -177,13 +215,12 @@ $first_page=1;
 		echo '<a href="menuitems.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';
 		}
 		echo '</center>';
+	}
 		?>
 
 			
-										</div>
-									</div>
-							</div>
-					</div>
+				
+									
 
 
 

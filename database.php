@@ -331,16 +331,16 @@ class database
 	public function getmenuitemDetail($item_id)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select * from menuitem_tbl where item_id='$item_id'");
+		$res=mysqli_query($con,"select * from subcui_tbl where subcui_id='$item_id'");
 		return $res;
 		database::disconnect();
 
 	}
 	
-	public function MenuitemEdit($item_id,$restid,$item_name,$item_price)
+	public function MenuitemEdit($item_id,$item_name,$item_price)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"update menuitem_tbl set fk_rest_id='$restid',item_name='$item_name',item_price='$item_price' where item_id='$item_id' ");
+		$res=mysqli_query($con,"update subcui_tbl set subcui_name='$item_name',subcui_price='$item_price' where subcui_id='$item_id' ");
 		return $res;			
 		database::disconnect();
 	}
@@ -348,7 +348,7 @@ class database
 	public function menuitemDel($item_id)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"delete from menuitem_tbl where item_id='$item_id'");
+		$res=mysqli_query($con,"delete from subcui_tbl where subcui_id='$item_id'");
 		return $res;
 		database::disconnect();
 	}
@@ -396,6 +396,13 @@ class database
 		return $res;
 		database::disconnect();
 
+	}
+	public function searchmenuitem($restid,$term)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid' and  subcui_name LIKE '%".$term."%'");
+			return $res;
+			database::disconnect();
 	}
 	
 }

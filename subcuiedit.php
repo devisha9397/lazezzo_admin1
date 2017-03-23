@@ -49,11 +49,11 @@ include 'part1.php';
 <?php
 
 	$obj=new database();
-	$res=$obj->getsubcuiDetail($item_id);
+	$res=$obj->getmenuitemDetail($item_id);
 	while($row=mysqli_fetch_array($res))
 	{
-		$item_name=$row["item_name"];
-		$item_price=$row["item_price"];
+		$item_name=$row["subcui_name"];
+		$item_price=$row["subcui_price"];
 	}
 
 ?>
@@ -109,7 +109,7 @@ if(isset($_POST["btnupdate"]))
 	else
 	{		
 	$obj=new database();
-	$res=$obj->MenuitemEdit($item_id,$restid,$item_name,$item_price);
+	$res=$obj->MenuitemEdit($item_id,$item_name,$item_price);
 	if($res==1)
 	{
 		echo "done";
