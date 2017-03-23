@@ -68,7 +68,7 @@ include '1.php';
                     <input type="text" name="term" placeholder="Search Menuitem" />
                     <input type="submit" value="go" name="btn" />
 					</div>
-                </div>
+                
                 <!-- Search Section End -->
 </form>
 <?php

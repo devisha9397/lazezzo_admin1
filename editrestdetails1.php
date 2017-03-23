@@ -24,23 +24,28 @@ if($email=="")
 		$opening_status=$_POST["txtopeningstatus"];
 		$cost=$_POST["txtcost"];
 		$highlights=$_POST["txthighlights"];			
-		//$rest_image=$_POST["txtrestimage"];	
+	//	$rest_image_new=$_POST["txtrestimage"];	
 
 	if($_FILES["txtrestimage"]["name"]!="")
 		{
-			unlink($rest_image);
+			unlink("images/".$rest_image);
 			$rest_image="images/".$_FILES["txtrestimage"]["name"];
 			$rest_image1=$_FILES["txtrestimage"]["name"];
 			move_uploaded_file($_FILES["txtrestimage"]["tmp_name"],$rest_image);
 		}
-			
+	else if($_FILES["txtrestimage"]["name"]=="")
+	{
+			$rest_image1=$rest_image;
+			move_uploaded_file("images/".$rest_image,"images/".$rest_image);
+	}	
+			echo $_FILES["txtrestimage"]["tmp_name"];
 		require 'database.php';
 		$obj=new database();
 		$res=$obj->restdetailEdit($restid,$cuisine,$rest_name,$area,$rest_add,$pincode,$rest_number,$rest_email,$opening_status,$rest_image1,$cost,$highlights);
 		if($res==1)
 		{
-			
-			header('Location:demo.php');
+	
+			//header('Location:demo.php');
 		}			
 		else
 		{

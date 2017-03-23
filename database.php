@@ -45,6 +45,13 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	public function getallordersbyflag1($id,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=0 and r.rest_id='$id' LIMIT {$page},{$noi} ");
+		return $res;
+		database::disconnect();
+	}
 
 		public function getallapprovedordersbyflag($id)
 	{

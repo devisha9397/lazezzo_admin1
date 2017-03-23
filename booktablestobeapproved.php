@@ -39,10 +39,10 @@ if($email=="")
 
 
 <?php
-include 'part1.php';
-
-
-
+include '1.php';
+?>
+<?php
+include '2.php';
 ?>
 
 <h3>

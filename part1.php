@@ -79,7 +79,7 @@
                             <a href="#forms" class="forms">Offers</a>
                             <ul>
                                 <li><a href="addoffer1.php">Add Offer</a></li>
-                                <li><a href="offerdisplay.php">All Offres</a></li>
+                                <li><a href="offerdisplay.php">All Offers</a></li>
                                 <li><a href="checkboxes.html">Custom Checkboxes</a></li>
                                 <li><a href="switches.html">On/Off Switches</a></li>
                                 <li><a href="wysiwygeditor.html">WYSIWYG Editor</a></li>
@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <!-- User Section End -->
-				<div class="col-md-offset-7">
+				<div class="col-md-offset-6">
                 <!-- Search Section Start -->
                 <div class="search-box">
                     <input type="text" placeholder="Search Anything" />

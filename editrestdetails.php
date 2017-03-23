@@ -53,7 +53,7 @@ include 'part1.php';
 	{
 		$fk_cat_id=$row["fk_cat_id"];
 		$owner_email=$row["owner_email"];
-		$fk_user_email=$row["fk_user_email"];
+		//$fk_user_email=$row["fk_user_email"];
 		$rest_name=$row["rest_name"];
 		$area=$row["area"];
 		$rest_add=$row["rest_add"];

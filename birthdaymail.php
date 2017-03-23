@@ -114,7 +114,7 @@ try {
 	}
 	else
 	{
-	
+		header('location:demo2.php');
 	}
 }
 

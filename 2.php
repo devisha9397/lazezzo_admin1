@@ -1,7 +1,7 @@
  
  <!-- Header Top Navigation Start -->
  <div class="row">
-				<div class="col-md-offset-8">
+				<div class="col-md-offset-7">
                 <nav class="topnav">
                     <ul id="nav1">
 					<!--likes pr restaurant-->

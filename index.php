@@ -50,7 +50,7 @@
 				  });
 				});  	
 			</script>
-            <input type="submit" name="btnsubmit" class="btn btn-primary style2" value="Sign In" />
+            <input type="submit" name="btnsubmit" class="btn btn-primary style2" value="Log In" />
         </form>
     		<?php
 	
