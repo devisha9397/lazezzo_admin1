@@ -210,6 +210,10 @@ $first_page=1;
 		{
 			
 		}
+		else if($a==0)
+		{
+			
+		}
 		else 
 		{	
 		echo '<a href="menuitems.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';

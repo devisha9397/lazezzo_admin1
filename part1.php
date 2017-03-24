@@ -164,14 +164,15 @@
                 <!-- User Section End -->
 				<div class="col-md-offset-6">
                 <!-- Search Section Start -->
-                <div class="search-box">
+              <!--  <div class="search-box">
                     <input type="text" placeholder="Search Anything" />
                     <input type="submit" value="go" />
 					</div>
-                </div>
+                </div>-->
                 <!-- Search Section End -->
                 <!-- Header Top Navigation Start -->
-				<div class="col-md-offset-5">
+				
+				<div class="col-md-offset-3">
                 <nav class="topnav">
                     <ul id="nav1">
 					<!--likes pr restaurant-->
@@ -193,73 +194,7 @@
 						
 						</span></a>
 					</li>
-                        <li class="tasks">
-                        	<a href="#"><i class="glyphicon glyphicon-check"></i>Tasks<span>(04)</span></a>
-                            <div class="popdown">
-                            	<div class="taskslist">
-                                	<ul>
-                                    	<li>
-                                        	<h6><a href="#">Vel lundium natoque</a><span class="pull-right">25%</span></h6>
-                                            <div class="progress">
-                                                <div style="width: 15%" class="progress-bar progress-bar-success">
-                                                    <span class="sr-only">35% Complete (success)</span>
-                                                </div>
-                                                <div style="width: 5%" class="progress-bar progress-bar-warning">
-                                                    <span class="sr-only">20% Complete (warning)</span>
-                                                </div>
-                                                <div style="width: 5%" class="progress-bar progress-bar-danger">
-                                                    <span class="sr-only">10% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a><span class="pull-right">75%</span></h6>
-                                            <div class="progress">
-                                                <div style="width: 30%" class="progress-bar progress-bar-success">
-                                                    <span class="sr-only">35% Complete (success)</span>
-                                                </div>
-                                                <div style="width: 30%" class="progress-bar progress-bar-warning">
-                                                    <span class="sr-only">20% Complete (warning)</span>
-                                                </div>
-                                                <div style="width: 15%" class="progress-bar progress-bar-danger">
-                                                    <span class="sr-only">10% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a><span class="pull-right">52%</span></h6>
-                                            <div class="progress">
-                                                <div style="width: 30%" class="progress-bar progress-bar-success">
-                                                    <span class="sr-only">35% Complete (success)</span>
-                                                </div>
-                                                <div style="width: 15%" class="progress-bar progress-bar-warning">
-                                                    <span class="sr-only">20% Complete (warning)</span>
-                                                </div>
-                                                <div style="width: 7%" class="progress-bar progress-bar-danger">
-                                                    <span class="sr-only">10% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                        	<h6><a href="#">Vel lundium natoque</a><span class="pull-right">90%</span></h6>
-                                            <div class="progress">
-                                                <div style="width: 30%" class="progress-bar progress-bar-success">
-                                                    <span class="sr-only">35% Complete (success)</span>
-                                                </div>
-                                                <div style="width: 30%" class="progress-bar progress-bar-warning">
-                                                    <span class="sr-only">20% Complete (warning)</span>
-                                                </div>
-                                                <div style="width: 30%" class="progress-bar progress-bar-danger">
-                                                    <span class="sr-only">10% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="viewall">View All Tasks</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </li>
+                        
 						
                         <li class="notifi">
                         	<a href="#"><i class="glyphicon glyphicon-bell"></i>Notifications <span class="badge" style="background-color:tomato ;"><?php 

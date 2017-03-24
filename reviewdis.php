@@ -1,5 +1,6 @@
  <?php
 session_start();
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
 include 'database.php';
 $restid=$_SESSION["restid"];
 
@@ -35,76 +36,40 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 </head>
+<style>
+.button {
+    background-color: #F5F3F2; 
+    border: none;
+    color: #555555;
+    padding: 5px 10px;
+    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+</style>
 
 <body>
 
 
 <?php
 include 'part1.php';
-
-
-
 ?>
 
-
-
+  </h3>
+  
  
-
-<div class="panel panel-success" background-color=#080606>
-  <div class="panel-heading"><h3> 
-  
-  
-  
-    
-  <img src="images/<?php
-						//include 'database.php';
-						$obj=new database();
-						$email=$_SESSION["email"];
-                       $res=$obj->getresrownerdetailbyid($email);                                          																			
-		while($row=mysqli_fetch_array($res))
-		{
-			echo $row["owner_image"];
-																								
-		}
-		?>" height=100px width=100px class="img-circle">
-
-  
-  
-	<?php
-
-					//	$restname=$_SESSION["restname"];
-						//echo $restname;
-			//	echo '<br>';
-	
-				$obj1=new Database();
-				$res1=$obj1->getrestDetail($restid);
-				while($row1=mysqli_fetch_array($res1))
-				{
-					
-					echo '<tr>';
-					//echo $row["rest_image"];
-			//						echo '<td>'.'<img src="images/'.$row['rest_image'].'" class="img-circle"  height="70px" width="70px"/>';
-					echo '<td>'.$row1["rest_name"].'</td>';
-					echo '<br>';
-					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
-					echo '<td>'.$row1["rest_add"].'</td>';
-		
-					echo '</tr>';
-				}	
-						?>
-	
-  
-  
-  </h3></div>
-  <div class="panel-body">
-<hr> 
 		
 		<table class="table">
     <thead><tr>
-        <th>Review By  </th> 
+        <th>User Name</th> 
         <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review</th>
         <th>&nbsp;Date</th>
-       <th>Delete</th>
+       <!--<th>Delete</th>-->
         
         </tr></thead>
 
@@ -112,9 +77,24 @@ include 'part1.php';
 		  <br>
 	<?php
 							
+echo '<div class="row">';
+				if(!isset($_POST["btn"]))
+				{
+				$noi=6;
+				 if($page=="" || $page=="1")
+				{
+				$page1=0;
+				}
+				else
+				{
+				$page1=($page*$noi)-$noi;
+				}
 
+$next_page=$page+1;
+$prev_page=$page-1;
+$first_page=1;
 				$obj=new Database();
-				$res=$obj->getallReviews($restid);
+				$res=$obj->getallReviews1($restid,$page1,$noi);
 				while($row=mysqli_fetch_array($res))
 				{
 				
@@ -124,31 +104,79 @@ include 'part1.php';
 					 echo'&nbsp;'.$row["user_name"].'</td>';      
 					echo '<td>'.$row['review_message'].'</td>';
 					echo '<td>'.$row['review_date'].'</td>';
-					echo '<td><a href="reviewdel.php?id='.$row["review_id"].'"><button type="submit" class="btn btn-danger">
-<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					//echo '<td><a href="reviewdel.php?id='.$row["review_id"].'"><button type="submit" class="btn btn-danger">
+					//<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 					echo '</tr>';
-				}						
+				}
+
+				$res1=$obj->getallReviews($restid);
+				$cnt1=mysqli_num_rows($res1);
 				
+				$a=$cnt1/$noi;
+				$a=ceil($a);
+				$last_page=$a;
+
+			}
+				
+echo '</div>';				
 				?>
 			
 
-		
 		</tbody>
-		
-		
-		
-		
-		
-  </div>
-  </div>
+		</table>
+			<?php
+			if(!isset($_POST["btn"]))
+			{
 
+			echo '<br><center>';
+			if($page==1)
+			{
+				
+			}
+			else 
+			{	
+			echo '<a href="reviewdis.php?page='.$first_page.'" style="text-decoration:none;"><button class="button"><<</button></a>';	
+			}
+			if($prev_page==0)
+			{
+				
+			}
+			else
+			{
+		echo '<a href="reviewdis.php?page='.$prev_page.'" style="text-decoration:none;"><button class="button">Previous</button></a>';	
+			}
+			
+			for($b=1;$b<=$a;$b++)
+		{
+			echo '<a href="reviewdis.php?page='.$b.'" style="text-decoration:none;"><button class="button">'.$b.'</button></a>'; 
+		}
+		
+		if($next_page==$a)
+		{
+			echo '<a href="reviewdis.php?page='.$next_page.'" style="text-decoration:none;"><button class="button">Next</button></a>';	
+		}
+		else
+		{	
+		
+		}
+		if($page==$last_page)
+		{
+			
+		}
+		else if($a==0)
+		{
+			
+		}
+		else 
+		{	
+		echo '<a href="reviewdis.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';
+		}
+		echo '</center>';
+		}
+		?>
 
 <?php
 include 'part2.php';
-
-
-
 ?>
 </body>
-
 </html>

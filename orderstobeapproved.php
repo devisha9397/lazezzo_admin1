@@ -53,6 +53,12 @@ if($email=="")
 </style>
 
 <body>
+<?php
+
+$ref=$_SERVER['PHP_SELF'];
+$sec="60";
+header("Refresh: $sec; url=orderstobeapproved.php");
+?>
 
 
 <?php
@@ -183,6 +189,10 @@ $first_page=1;
 		
 		}
 		if($page==$last_page)
+		{
+			
+		}
+		else if($a==0)
 		{
 			
 		}

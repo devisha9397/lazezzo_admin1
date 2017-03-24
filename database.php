@@ -60,7 +60,14 @@ class database
 		return $res;
 		database::disconnect();
 	}
-
+		public function getallapprovedordersbyflag1($id,$page,$noi)
+		{
+		$con=database::connect();
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=1 and r.rest_id='$id' LIMIT {$page},{$noi}");
+		return $res;
+		database::disconnect();
+		}
+	
 
 	public function orderApprove($order_id)
 	{		$con=database::connect();
@@ -86,7 +93,13 @@ class database
 		return $res;
 		database::disconnect();
 	}
-	
+	public function getAllOrderByDisApproved1($restid,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select o.*,u.*,s.*,r.* from restaurant_tbl as r,order_tbl as o,user_tbl as u,subcui_tbl as s where s.subcui_id=o.fk_subcui_id and u.user_email=o.fk_user_email and o.fk_rest_id=r.rest_id and o.flag=2 and r.rest_id='$restid' LIMIT {$page},{$noi}");
+		return $res;
+		database::disconnect();
+	}
 	
 	public function orderdel($order_id)
 	{
@@ -116,6 +129,13 @@ class database
 			return $res;
 			database::disconnect();
 		
+	}
+	public function getAllOffers1($restid,$page,$noi)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from discount_tbl where fk_rest_id='$restid' LIMIT {$page},{$noi}");
+			return $res;
+			database::disconnect();
 	}
 	
 	public function offerDel($discount_id)
@@ -149,6 +169,13 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	public function getallmenuphotos1($restid,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from menuphoto_tbl where fk_rest_id='$restid' LIMIT {$page},{$noi}");
+		return $res;
+		database::disconnect();
+	}
 	
 	public function menuphotoDel($menuid)
 	{
@@ -168,8 +195,15 @@ class database
 	
 	public function getallotherphotos($restid)
 	{
-		$con=database::connect();
+			$con=database::connect();
 			$res=mysqli_query($con,"select * from otherphoto_tbl where fk_rest_id='$restid'");
+			return $res;
+			database::disconnect();
+	}
+	public function getallotherphotos1($restid,$page,$noi)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from otherphoto_tbl where fk_rest_id='$restid' LIMIT {$page},{$noi}");
 			return $res;
 			database::disconnect();
 	}
@@ -198,6 +232,13 @@ class database
 		database::disconnect();
 		
 	}
+	public function getallReviews1($restid,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select review.*,u.*,r.* from restaurant_tbl as r,review_tbl as review,user_tbl as u where u.user_email=review.fk_user_email and review.fk_rest_id=r.rest_id and r.rest_id='$restid' order by review_date LIMIT {$page},{$noi}");
+		return $res;
+		database::disconnect();
+	}
 	
 	public function reviewDel($review_id)
 	{
@@ -215,7 +256,8 @@ class database
 		return $res;
 		database::disconnect();
 
-	}	
+	}
+		
 	
 	public function getOrderCount($flag,$restid)
 	{
@@ -233,11 +275,25 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	public function getallbooktablesbyrestid1($id,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and r.rest_id='$id' LIMIT {$page},{$noi}");
+		return $res;
+		database::disconnect();
+	}
 
 	public function getallbooktablesbyflag($id)
 	{
 		$con=database::connect();
 		$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and b.flag=0  and r.rest_id='$id' ");
+		return $res;
+		database::disconnect();
+	}
+	public function getallbooktablesbyflag1($id,$page,$noi)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and b.flag=0  and r.rest_id='$id' LIMIT {$page},{$noi} ");
 		return $res;
 		database::disconnect();
 	}
