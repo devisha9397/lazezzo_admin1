@@ -40,9 +40,6 @@ if($email=="")
 
 <?php
 include 'part1.php';
-
-
-
 ?>
 
 <?php
@@ -67,8 +64,6 @@ include 'part1.php';
 		
 		
 	}
-
-
 ?>
 
 
@@ -266,9 +261,6 @@ echo '<option '.$selected.'  value="'.$row["cat_id"].'">'.$row["cusines"].'</opt
 
 <?php
 include 'part2.php';
-
-
-
 ?>
 </body>
 

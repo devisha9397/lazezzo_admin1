@@ -60,7 +60,7 @@ include 'part1.php';
 ?>
 
 					<h3>
-						
+						<br><br>
 						
 						<table class="table table-bordered" id="dataTable">
 				<thead>
@@ -104,12 +104,12 @@ $first_page=1;
 						{
 									echo '<tr>';
 				
-					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["mobile_no"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["date"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["no_of_people"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["time"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["additional_request"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["mobile_no"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["date"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["no_of_people"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["time"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["additional_request"].'</font>';
 		
 					echo '</tr>';
 			

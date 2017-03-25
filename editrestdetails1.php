@@ -45,7 +45,7 @@ if($email=="")
 		if($res==1)
 		{
 	
-			//header('Location:demo.php');
+			header('Location:restprofile.php');
 		}			
 		else
 		{

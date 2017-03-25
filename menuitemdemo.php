@@ -1,4 +1,4 @@
-   <?php
+<?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
@@ -7,6 +7,7 @@ if($email=="")
  {
 	 header('Location:index.php');	 
  }
+
 ?>
 
 <!DOCTYPE HTML>
@@ -42,58 +43,36 @@ include 'part1.php';
 ?>
 
 
-
-<?php
-
-	$obj=new database();
-	$res=$obj->getrestownerDetail($email);
-	while($row=mysqli_fetch_array($res))
-	{
-		$rest_owner_name=$row["rest_owner_name"];
-		$owner_mob_no=$row["owner_mob_no"];
-		$owner_image=$row["owner_image"];
-	}
-
-
-?>
-<form action="editprofile1.php?photo=<?php echo $owner_image; ?>" method="post" enctype="multipart/form-data">
-<div class="row">
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $rest_owner_name; ?>"  aria-describedby="emailHelp">
-  </div>
-  <br>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Contact No.</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" name="txtno" value="<?php echo $owner_mob_no; ?>">
-  </div>
-  <br>
-  
-  <div class="form-group">
-   <label for="exampleInputPassword1">Profile Pic</label>
-   <img src="images/<?php echo $owner_image; ?>" height=220px width=220px>
-  <td><input type="file" name="txtfile" value="change profile photo"></td>
-</div>
-  </div>
-  </div>
-  <center>
-		 	<div class="form-group">
-			<div class="col-sm-8">
-			<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-			<button type="submit" class="btn btn-success" value="Update" name="btnupdate" >Update</button>
-			</div>
-			</div>
-			</center>
-  </form>
-
-
+<!--<div data-ride="carousel" class="carousel slide" id="carousel-example-generic">-->
+ <!--       <div class="carousel-inner">-->
+        
+        <div class="item active">
+        <ul class="gallerybox">
+        <li>
+         <figure>
+         <a href="#"><img src="assets/images/img1.jpg" height="300%" width="700%" alt="" /></a>
+         <figcaption>
+         <h5><a href="#">Montes platea amet</a></h5>
+         <div class="controls">
+         <a href="#" class="edit">Edit</a>
+         <a href="#" class="delete">Delete</a>
+         </div>
+         </figcaption>
+         </figure>
+         </li>
+                                                                                                              </ul>
+         <!--</div>-->
+         <!--</div>-->
+         <a data-slide="prev" href="#carousel-example-generic" class="left carousel-control">
+         <span class="glyphicon glyphicon-chevron-left"></span>
+         </a>
+         <a data-slide="next" href="#carousel-example-generic" class="right carousel-control">
+         <span class="glyphicon glyphicon-chevron-right"></span>
+         </a>
+         </div>
 
 <?php
 include 'part2.php';
-
-
-
 ?>
 </body>
 

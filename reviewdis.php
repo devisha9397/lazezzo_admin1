@@ -67,7 +67,10 @@ include 'part1.php';
 		<table class="table">
     <thead><tr>
         <th>User Name</th> 
-        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review</th>
         <th>&nbsp;Date</th>
        <!--<th>Delete</th>-->
         
@@ -101,9 +104,9 @@ $first_page=1;
 					echo '<tr>';
 					echo '<td>'.'<img src="images/'.$row['pro_pic'].'" class="img-circle"  height="70px" width="70px"/>';
 					echo '<br>';
-					 echo'&nbsp;'.$row["user_name"].'</td>';      
-					echo '<td>'.$row['review_message'].'</td>';
-					echo '<td>'.$row['review_date'].'</td>';
+					 echo'&nbsp;<font size="4" color="black">'.$row["user_name"].'</font></td>';      
+					echo '<td><font size="4" color="black"><center>'.$row['review_message'].'</center></font></td>';
+					echo '<td><font size="4" color="black">'.$row['review_date'].'</font></td>';
 					//echo '<td><a href="reviewdel.php?id='.$row["review_id"].'"><button type="submit" class="btn btn-danger">
 					//<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 					echo '</tr>';

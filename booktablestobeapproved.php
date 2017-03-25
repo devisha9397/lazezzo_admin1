@@ -53,6 +53,12 @@ if($email=="")
 </style>
 
 <body>
+<?php
+
+$ref=$_SERVER['PHP_SELF'];
+$sec="60";
+header("Refresh: $sec; url=booktablestobeapproved.php");
+?>
 
 
 <?php
@@ -70,7 +76,7 @@ include '2.php';
 				<tr class="active">
 					<td><font size="3" color="blue"><b>User Name</b></font>
 						<td><font size="3" color="blue"><b>Contact Number</b></font>
-					<td><font size="3" color="blue"><b>Date</b></font>
+					<td><font size="3" color="blue"><b>Date Of Order</b></font>
 					<td><font size="3" color="blue"><b>No Of People</b></font>
 					<td><font size="3" color="blue"><b>Time</b></font>
 					<td><font size="3" color="blue"><b>Additional Request</b></font>
@@ -109,14 +115,14 @@ $first_page=1;
 						{
 									echo '<tr>';
 				
-					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["mobile_no"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["date"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["no_of_people"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["time"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["additional_request"].'</font>';
-					echo '<td><a href="approvebooktable.php?id='.$row["table_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
-					echo '<td><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
+					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["mobile_no"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["date"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["no_of_people"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["time"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["additional_request"].'</font>';
+					echo '<td><a href="approvebooktable.php?id='.$row["table_id"].'"><button style="background-color: green" type="button" class="btn btn-success" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
+					echo '<td><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
 
 					echo '</tr>';
  			

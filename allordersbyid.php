@@ -108,12 +108,12 @@ $first_page=1;
 						{
 									echo '<tr>';
 				//	echo '<td><font size="4" color="black">'.$row["fk_rest_id"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["subcui_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["quantity"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["total_amount"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["date_of_order"].'</font>';
-					echo '<td><font size="4" color="DarkRed ">'.$row["delivery_area"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["subcui_name"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["quantity"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["total_amount"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["date_of_order"].'</font>';
+					echo '<td><font size="4" color="black ">'.$row["delivery_area"].'</font>';
 					echo '</tr>';
 			
 						}

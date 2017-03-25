@@ -104,13 +104,13 @@ $first_page=1;
 						while($row=mysqli_fetch_array($res))
 						{
 									echo '<tr>';
-				//	echo '<td><font size="4" color="DarkRed">'.$row["fk_rest_id"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["subcui_name"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["quantity"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["total_amount"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["date_of_order"].'</font>';
-					echo '<td><font size="4" color="DarkRed">'.$row["delivery_area"].'</font>';
+				//	echo '<td><font size="4" color="black">'.$row["fk_rest_id"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["quantity"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["total_amount"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["date_of_order"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["delivery_area"].'</font>';
 					echo '<td><a href="orderdel.php?id='.$row["order_id"].'"><button type="submit" class="btn btn-danger">
 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 

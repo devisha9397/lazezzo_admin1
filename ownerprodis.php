@@ -1,9 +1,8 @@
-   <?php
+ <?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
-$item_id=$_REQUEST["id"];
 if($email=="")
  {
 	 header('Location:index.php');	 
@@ -42,91 +41,45 @@ if($email=="")
 <?php
 include 'part1.php';
 ?>
- 
+
 <?php
 
 	$obj=new database();
-	$res=$obj->getmenuitemDetail($item_id);
+	$res=$obj->getrestownerDetail($email);
 	while($row=mysqli_fetch_array($res))
 	{
-		$item_name=$row["subcui_name"];
-		$item_price=$row["subcui_price"];
+		$rest_owner_name=$row["rest_owner_name"];
+		$owner_mob_no=$row["owner_mob_no"];
+		$owner_image=$row["owner_image"];
 	}
 
 ?>
-
-
-<form action="#" method="post">
-<div class="row">
-<div class="col-md-4">
-
-
-
-<div class="form-group">
-    <label> Item Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname" required value="<?php echo $item_name; ?>"  aria-describedby="emailHelp">
-  </div>
-  </div>
-  </div>
-
-  
-<div class="row">
-<div class="col-md-4">
-
-<div class="form-group">
-    <label> Item Price</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" name="txtprice" required  value="<?php echo $item_price; ?>"  aria-describedby="emailHelp">
-  </div>
-  </div>
-  </div>  
-  
-			<center>
-		 	<div class="form-group">
-			<div class="col-sm-8">
-			<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-			<button type="submit" class="btn btn-success" value="Update" name="btnupdate" >Update</button>
-			</div>
-			</div>
-			</center>
-
-  
-</form>
-
-
-<?php
-if(isset($_POST["btnupdate"]))
-{
-
-		$item_name=$_POST["txtname"];
-		$item_price=$_POST["txtprice"];
-		if (!strlen(trim($_POST['txtname'])) || !strlen(trim($_POST['txtprice'])) )
-		{
-			echo 'plz enter content ';
-		}
-	else
-	{		
-	$obj=new database();
-	$res=$obj->MenuitemEdit($item_id,$item_name,$item_price);
-	if($res==1)
-	{
-		echo "done";
-		header('location:menuitems.php');
-	}
-	else
-	{
-		echo "something went wrong";
-	}
-}	
-}								
-?>													
-
+   <center>
+	
+      <img src="images/<?php echo $owner_image;?>" " alt="Profile Pic" height="200px" width="200px">
+      
+    </center>
+	<br>
+	<br>
+<div class="caption">
+        <h3>
+		<font size="5">
+	
+		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;	 Name : <?php echo $rest_owner_name; ?>
+		<br>
+		<br>
+		<span class="glyphicon glyphicon-phone-alt" style="font-size:25px"></span>&nbsp;&nbsp;&nbsp;Contact no : <?php echo $owner_mob_no; ?>
+		<br>
+		<br>
+	
+	
+	</font>
+	</h3>
+	</div>
 
 
 <?php
 include 'part2.php';
-
-
-
 ?>
 </body>
 

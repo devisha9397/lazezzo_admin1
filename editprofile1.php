@@ -34,7 +34,7 @@ if($email=="")
 		if($res==1)
 		{
 			
-			header('Location:demo.php');
+			header('Location:ownerprodis.php');
 		}			
 		else
 		{

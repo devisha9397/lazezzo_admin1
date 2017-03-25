@@ -84,9 +84,10 @@
                         	<a href="#"><i class="glyphicon glyphicon-wrench"></i>Settings</a>
                             <div class="popdown popdown-right settings">
                             	<nav>
-                                	<a href="#"><i class="glyphicon glyphicon-user"></i>Your Profile</a>
-                                    <a href="editprofile.php"><i class="glyphicon glyphicon-pencil"></i>Edit Account</a>
-                                    <a href="editrestdetails.php"><i class="glyphicon glyphicon-pencil"></i>Edit restaurant Detalis</a>
+                                	<a href="ownerprodis.php"><i class="glyphicon glyphicon-user"></i>Your Profile</a>
+                                    <a href="editprofile.php"><i class="glyphicon glyphicon-pencil"></i>Edit Profile</a>
+									<a href="restprofile.php"><i class="glyphicon glyphicon-pencil"></i>Your Restaurant Details</a>
+                                    <a href="editrestdetails.php"><i class="glyphicon glyphicon-edit"></i>Edit Restaurant Detalis</a>
                                     <a href="logout.php"><i class="glyphicon glyphicon-log-out"></i>Log out</a>
                                 </nav>
                             </div>
