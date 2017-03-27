@@ -1,4 +1,4 @@
-<?php
+	<?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
@@ -65,7 +65,7 @@ include 'part1.php';
                                     <div class="form-material">
 									
 
-                                       <select class="list-group" name="selectnames[]"  style="width: 40%" "height=400%"  data-placeholder="Choose many.." multiple >
+                                       <select class="form-control" name="selectnames[]"  style="width: 40%" "height=400%"  data-placeholder="Choose many.." multiple >
                                          
 										 <?php
 											//include '..database.php';
@@ -74,9 +74,9 @@ include 'part1.php';
 											while($row=mysqli_fetch_array($res))
 											{
 										?>
-										<option value="<?php echo $row["subcui_id"] ?>" > <?php  echo'
+										<option value="<?php echo $row["subcui_id"] ?>" > <?php  
 										
-										<div class="list-group-item">'. $row["subcui_name"].'</div>'; ?> </option>
+									echo $row["subcui_name"]; ?> </option>
 										<?php
 											}
 											
