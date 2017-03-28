@@ -58,7 +58,6 @@
                             <ul>
                                 <li><a href="allbooktablesbyid.php">All Booktables</a></li>
                                 <li><a href="booktablestobeapproved.php">Requests To Be Approved &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge" style="background-color:tomato;"><?php 
-
 									$obj2=new database();
 									$res2=$obj2->getBooktableCount(0,$restid);
 									while($row=mysqli_fetch_array($res2))
@@ -67,7 +66,7 @@
 
 									}
 							   ?></span>
-								
+						<li><a href="approvedbooktables.php">Approved Booktables</a></li>		
 								
 								
 								

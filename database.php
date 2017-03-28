@@ -67,6 +67,8 @@ class database
 		return $res;
 		database::disconnect();
 		}
+		
+	
 	
 
 	public function orderApprove($order_id)
@@ -105,6 +107,13 @@ class database
 	{
 		$con=database::connect();
 			$res=mysqli_query($con,"delete from order_tbl where order_id='$order_id'");
+			return $res;
+			database::disconnect();
+	}
+	public function bookdel($table_id)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"delete from booktable_tbl where table_id='$table_id'");
 			return $res;
 			database::disconnect();
 	}
@@ -227,7 +236,7 @@ class database
 	public function getallReviews($restid)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select review.*,u.*,r.* from restaurant_tbl as r,review_tbl as review,user_tbl as u where u.user_email=review.fk_user_email and review.fk_rest_id=r.rest_id and r.rest_id='$restid' order by review_date");
+		$res=mysqli_query($con,"select review.*,u.*,r.* from restaurant_tbl as r,review_tbl as review,user_tbl as u where u.user_email=review.fk_user_email and review.fk_rest_id=r.rest_id and r.rest_id='$restid'");
 		return $res;
 		database::disconnect();
 		
@@ -235,7 +244,7 @@ class database
 	public function getallReviews1($restid,$page,$noi)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select review.*,u.*,r.* from restaurant_tbl as r,review_tbl as review,user_tbl as u where u.user_email=review.fk_user_email and review.fk_rest_id=r.rest_id and r.rest_id='$restid' order by review_date LIMIT {$page},{$noi}");
+		$res=mysqli_query($con,"select review.*,u.*,r.* from restaurant_tbl as r,review_tbl as review,user_tbl as u where u.user_email=review.fk_user_email and review.fk_rest_id=r.rest_id and r.rest_id='$restid' order by review_date desc  LIMIT  {$page},{$noi}");
 		return $res;
 		database::disconnect();
 	}
@@ -278,7 +287,7 @@ class database
 	public function getallbooktablesbyrestid1($id,$page,$noi)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and r.rest_id='$id' order by time LIMIT {$page},{$noi}");
+		$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and r.rest_id='$id' order by date desc LIMIT {$page},{$noi}");
 		return $res;
 		database::disconnect();
 	}
@@ -470,7 +479,7 @@ class database
 	public function getAllfamousfood($restid)
 	{
 			$con=database::connect();
-			$res=mysqli_query($con,"select f.*,r.*,s.* from famous_tbl as f,restaurant_tbl as r,subcui_tbl as s where f.fk_rest_id=r.rest_id and f.fk_subcui_id=s.subcui_id");
+			$res=mysqli_query($con,"select f.*,r.*,s.* from famous_tbl as f,restaurant_tbl as r,subcui_tbl as s where f.fk_rest_id=r.rest_id and f.fk_subcui_id=s.subcui_id and f.fk_rest_id='$restid'");
 			return $res;
 			database::disconnect();
 	}
@@ -485,6 +494,29 @@ class database
 	{
 			$con=database::connect();
 			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid'");
+			return $res;
+			database::disconnect();
+	}
+	
+	public function getallapprovedbooktablesflag($id)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and r.rest_id='$id' and b.flag='1'");
+			return $res;
+			database::disconnect();
+	}
+	public function getallapprovedbooktablesflag1($id,$page1,$noi)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select b.*,u.*,r.* from restaurant_tbl as r,booktable_tbl as b,user_tbl as u where u.user_email=b.fk_user_email and b.fk_rest_id=r.rest_id and r.rest_id='$id' and b.flag='1' order by date desc LIMIT {$page1},{$noi}");
+			return $res;
+			database::disconnect();
+	}
+	
+	public function addfamousfood($famous_id,$restid,$uid)
+	{
+		$con=database::connect();
+			$res=mysqli_query($con,"insert into famous_tbl values('$famous_id','$restid','$uid')");
 			return $res;
 			database::disconnect();
 	}

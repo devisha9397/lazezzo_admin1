@@ -78,7 +78,7 @@ include 'part1.php';
 					<center>
 					<div class="form-group">
 					<div class="col-sm-8">
-					<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+					<label for="focusedinput" class="col-sm-6 control-label"><font size="3" color="black"><b></b></font></label>
 					<button type="submit" class="btn btn-success" value="Add" name="btnadd" >Add</button>
 					</div>
 					</div>
