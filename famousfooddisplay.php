@@ -64,8 +64,8 @@ include 'part1.php';
 				
 				<tr class="active">
 				 
-					<th><font size="3" color="blue"><b>Item Name</b></font></th>
-					<th><font size="3" color="blue"><b>Item Price</b></font></th>
+					<th><center><font size="3" color="blue"><b>Item Name</b></font></center></th>
+					<th><center><font size="3" color="blue"><b>Item Price</b></font></center></th>
 					<!--<th><font size="3" color="blue"><b>Update</b></font>-->
 					<th><center><font size="3" color="blue"><b>Delete</b></font></center></th>
 				</tr>
@@ -96,12 +96,12 @@ $first_page=1;*/
 				while($row=mysqli_fetch_array($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
+					echo '<td><center><font size="4" color="black">'.$row["subcui_name"].'</font></center>';
+					echo '<td><center><font size="4" color="black">'.$row["subcui_price"].'</font></center>';
 				//	echo '<td><a href="offeredit.php?id='.$row["discount_id"].'"><button type="submit" class="btn btn-success">
 					//<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
-					echo '<td><a href="famousfooddel.php?id='.$row["famous_id"].'"><center><button type="submit" class="btn btn-danger">
-					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></center></a></td>';
+					echo '<td><center><a href="famousfooddel.php?id='.$row["famous_id"].'"><center><button type="submit" class="btn btn-danger">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></center></a></td></center>';
 				
 				
 					

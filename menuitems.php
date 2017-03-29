@@ -112,12 +112,12 @@ $res1=$obj->searchmenuitem($restid,$term);
 while ($row = mysqli_fetch_array($res1)){  
   
    echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["subcui_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["subcui_price"].'</font>';
-					echo '<td><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
-							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
-					echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-danger">
-							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><center><font size="4" color="black">'.$row["subcui_name"].'</font></center>';
+					echo '<td><center><font size="4" color="black">'.$row["subcui_price"].'</font></center>';
+					echo '<td><center><a href="subcuiedit.php?id='.$row["subcui_id"].'"><button type="submit" class="btn btn-success">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></center>';
+					echo '<td><a href="menuitemdel.php?id='.$row["subcui_id"].'"><center><button type="submit" class="btn btn-danger">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></center></button></a>';
 				
 					echo '</tr>';
 					}  

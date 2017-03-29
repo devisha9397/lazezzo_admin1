@@ -84,7 +84,7 @@ $cnt=mysqli_num_rows($res);
 				
 					//echo $restid;
 			
-					header('location:demo.php');
+					header('location:trydash.php');
 				}
 			
 		}

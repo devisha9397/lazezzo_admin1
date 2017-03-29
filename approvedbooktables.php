@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -68,7 +69,7 @@ include 'part1.php';
 				
 								<tr class="active">
 					<td><font size="3" color="blue"><b>User Name</b></font>
-						<td><font size="3" color="blue"><b>Contact Number</b></font>
+					<td><font size="3" color="blue"><b>Contact Number</b></font>
 					<td><font size="3" color="blue"><b>Date</b></font>
 					<td><font size="3" color="blue"><b>No Of People</b></font>
 					<td><font size="3" color="blue"><b>Time</b></font>
@@ -111,11 +112,11 @@ $first_page=1;
 					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["mobile_no"].'</font>';
 					echo '<td><font size="4" color="black ">'.$row["date"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["no_of_people"].'</font>';
+					echo '<td><center><font size="4" color="black ">'.$row["no_of_people"].'</font></center>';
 					echo '<td><font size="4" color="black ">'.$row["time"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["additional_request"].'</font>';
-					echo '<td><a href="booktabledel.php?id='.$row["table_id"].'"><button type="submit" class="btn btn-danger">
-					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '<td><center><font size="4" color="black ">'.$row["additional_request"].'</font></center>';
+					echo '<td><center><a href="booktabledel.php?id='.$row["table_id"].'"><button type="submit" class="btn btn-danger">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td></center>';
 
 					echo '</tr>';
 			

@@ -520,6 +520,21 @@ class database
 			return $res;
 			database::disconnect();
 	}
+	public function getmenuphotodetail($menuid)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from menuphoto_tbl where menu_id='$menuid'");
+			return $res;
+			database::disconnect();
+	}
+	
+	public function getotherphotodetail($other_id)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from otherphoto_tbl where other_id='$other_id'");
+			return $res;
+			database::disconnect();
+	}
 }
 
 ?>

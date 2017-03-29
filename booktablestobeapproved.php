@@ -117,12 +117,12 @@ $first_page=1;
 				
 					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["mobile_no"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["date"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["no_of_people"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["time"].'</font>';
-					echo '<td><font size="4" color="black ">'.$row["additional_request"].'</font>';
-					echo '<td><a href="approvebooktable.php?id='.$row["table_id"].'"><button style="background-color: green" type="button" class="btn btn-success" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
-					echo '<td><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
+					echo '<td><center><font size="4" color="black ">'.$row["date"].'</font></center>';
+					echo '<td><center><font size="4" color="black ">'.$row["no_of_people"].'</font></center>';
+					echo '<td><center><font size="4" color="black ">'.$row["time"].'</font></center>';
+					echo '<td><center><font size="4" color="black ">'.$row["additional_request"].'</font></center>';
+					echo '<td><center><a href="approvebooktable.php?id='.$row["table_id"].'"><button style="background-color: green" type="button" class="btn btn-success" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a></center>';
+					echo '<td><center><a href="disapprovebooktable.php?id='.$row["table_id"].'"><button style="background-color: red" type="button" class="btn btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a></center>';
 
 					echo '</tr>';
  			
