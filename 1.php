@@ -10,7 +10,7 @@
                 <header>
                     <!-- Logo Start -->
                     <div class="logo">
-                        <a href=""><img src="assets/images/logo.png" alt="Adminise" /></a>
+                        <a href=""><img src="assets/images/lazeezo2.png" alt="Adminise" /></a>
                     </div>
                     <!-- Logo End -->
                     <!-- Toggle Button Start -->
@@ -23,11 +23,8 @@
                 <nav class="navigation">
                     <ul class="navi-acc" id="nav2">
                         <li>
-                        <a href="#dashboard" class="dashboard">Dashboard</a>
-                        <ul>
-                            <li><a href="dashboard1.html">Dashboard 1</a></li>
-                            <li><a href="dashboard2.html">Dashboard 2</a></li>
-                        </ul>
+                        <a href="trydash.php" class="dashboard">Dashboard</a>
+                        
                     </li>
                         <li>
                             <a href="#layouts" class="layouts">Orders</a>
@@ -104,7 +101,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="charts.html" class="charts">Charts</a>
+                            <a href="famousfooddisplay.php" class="charts">famous food</a>
                         </li>
                         <br>
 					
