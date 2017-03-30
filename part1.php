@@ -65,21 +65,16 @@
 						<li><a href="approvedbooktables.php">Approved Booktables</a></li>		
 								
 								
-								
-								</a></li>
-                                <li><a href="emaildetails.html">Email Detail</a></li>
+				
+                               
                             </ul>
                         </li>
                         <li>
-                            <a href="#forms" class="forms">Offers</a>
-                            <ul>
+                            <a href="offerdisplay.php" class="forms">Offers</a>
+                    <!--        <ul>
                                 <li><a href="addoffer1.php">Add Offer</a></li>
                                 <li><a href="offerdisplay.php">All Offers</a></li>
-                                <li><a href="checkboxes.html">Custom Checkboxes</a></li>
-                                <li><a href="switches.html">On/Off Switches</a></li>
-                                <li><a href="wysiwygeditor.html">WYSIWYG Editor</a></li>
-                                <li><a href="sliders.html">Sliders</a></li>
-                            </ul>
+                            </ul>-->
                         </li>
                         <li>
                             <a href="#pages" class="pages">Photos</a>
@@ -89,14 +84,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#extras" class="extras">Reviews</a>
-                            <ul>
-                                <li><a href="reviewdis.php">See Reviews</a></li>
-                                <li><a href="calendar.html">Calendar</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="invoice.html">Invoice</a></li>
-                                <li><a href="404.html">404 Page</a></li>
-                            </ul>
+                            <a href="reviewdis.php" class="extras">Reviews</a>
+
                         </li>
                         <li>
                             <a href="famousfooddisplay.php" class="charts">famous food</a>

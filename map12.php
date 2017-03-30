@@ -12,7 +12,7 @@
           $con=mysql_connect('localhost','root','');
           mysql_select_db('lazeezo',$con);
           
-          $res=mysql_query("select * from restaurant_tbl where rest_id=18 ",$con);
+          $res=mysql_query("select * from restaurant_tbl where rest_id=21 ",$con);
           
             while ($row=mysql_fetch_assoc($res)) {
               $lat1=$row["latitude"];
@@ -81,9 +81,9 @@ $region='india';
     echo "</br>";
 	echo $long;
 
-$con=mysql_connect('localhost','root','');
-		 mysql_select_db('lazeezo',$con);
-		$res=mysql_query("insert into restaurant_tbl values('$rest_id','$owner_email','$fk_cat_id','$rest_name','$area','$address1','$pincode','$rest_number','$rest_email','$opening_status','0','$rest_image','$cost','$highlights','$long','$lat')");
+$con=mysqli_connect('localhost','root','','lazeezo');
+		// mysql_select_db('lazeezo',$con);
+		$res=mysqli_query($con,"insert into restaurant_tbl values('$rest_id','$owner_email','$fk_cat_id','$rest_name','$area','$address1','$pincode','$rest_number','$rest_email','$opening_status','0','$rest_image','$cost','$highlights','$long','$lat')");
 		if($res==1)
 		{
 			echo 'done';

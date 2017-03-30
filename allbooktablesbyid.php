@@ -1,6 +1,6 @@
   <?php
 session_start();
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
@@ -35,23 +35,6 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 </head>
-<style>
-.button {
-    background-color: #F5F3F2; 
-    border: none;
-    color: #555555;
-    padding: 5px 10px;
-    
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px 1px;
-    -webkit-transition-duration: 0.4s; 
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-</style>
-
 <body>
 
 
@@ -59,45 +42,35 @@ if($email=="")
 include 'part1.php';
 ?>
 
-					<h3>
-						<br><br>
-						
-						<table class="table table-bordered" id="dataTable">
-				<thead>
-				<tr class="active">
-					<td><center><font size="3" color="blue"><b>User Name</b></font></center>
-					<td><center><font size="3" color="blue"><b>Contact Number</b></font></center>
-					<td><center><font size="3" color="blue"><b>Date</b></font></center>
-					<td><center><font size="3" color="blue"><b>No Of People</b></font></center>
-					<td><center><font size="3" color="blue"><b>Time</b></font></center>
-					<td><center><font size="3" color="blue"><b>Additional Request</b></font></center>
-
-				</tr>
-				</thead>
-				
-				<tbody>
 			
+<div class="col-xs-12">
+<div class="sec-box">
+
+<header>
+<h2 class="heading">All Booktables</h2>
+</header>
+<div class="contents">
+                                    
+<div class="table-box">
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+<table class="display table" id="example">
+<thead>
+<tr>
+<th><font size="3" color="blue">User</font></th>
+<th><font size="3" color="blue">Contact No</font></th>
+<th><font size="3" color="blue"><center>Date</center></font></th>
+<th><font size="3" color="blue">No of people</font></th>
+<th><font size="3" color="blue"><center>Time</center></font></th>
+<th><font size="3" color="blue">Exta Request</font></th>
+</tr>
+</thead>
+<tbody>
 						
 						<?php
 						
-						if(!isset($_POST["btn"]))
-						{
-				$noi=7;
-				 if($page=="" || $page=="1")
-				{
-				$page1=0;
-				}
-				else
-				{
-				$page1=($page*$noi)-$noi;
-				}
-
-$next_page=$page+1;
-$prev_page=$page-1;
-$first_page=1;
-
+				
 							$obj=new database();
-							$res=$obj->getallbooktablesbyrestid1($restid,$page1,$noi);
+							$res=$obj->getallbooktablesbyrestid($restid);
 							$cnt=mysqli_num_rows($res);
 							
 						while($row=mysqli_fetch_array($res))
@@ -114,77 +87,70 @@ $first_page=1;
 					echo '</tr>';
 			
 						}
-				$res1=$obj->getallbooktablesbyrestid($restid);
-				$cnt1=mysqli_num_rows($res1);
-
-				$a=$cnt1/$noi;
-				$a=ceil($a);
-				$last_page=$a;
-
-						}
-
+				
 						?>
-				</tbody>
-				</table> 
-			
-			<?php
-			if(!isset($_POST["btn"]))
-			{
-
-			echo '<br><center>';
-			if($page==1)
-			{
-				
-			}
-			else 
-			{	
-			echo '<a href="allbooktablesbyid.php?page='.$first_page.'" style="text-decoration:none;"><button class="button"><<</button></a>';	
-			}
-			if($prev_page==0)
-			{
-				
-			}
-			else
-			{
-		echo '<a href="allbooktablesbyid.php?page='.$prev_page.'" style="text-decoration:none;"><button class="button">Previous</button></a>';	
-			}
-			
-			for($b=1;$b<=$a;$b++)
-		{
-			echo '<a href="allbooktablesbyid.php?page='.$b.'" style="text-decoration:none;"><button class="button">'.$b.'</button></a>'; 
-		}
-		
-		if($next_page==$a)
-		{
-			echo '<a href="allbooktablesbyid.php?page='.$next_page.'" style="text-decoration:none;"><button class="button">Next</button></a>';	
-		}
-		else
-		{	
-		
-		}
-		if($page==$last_page)
-		{
-			
-		}
-		else if($a==0)
-		{
-			
-		}
-		else 
-		{	
-		echo '<a href="allbooktablesbyid.php?page='.$last_page.'" style="text-decoration:none;"><button class="button">>></button></a>';
-		}
-		echo '</center>';
-		}
-		?>
 						
+												</tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th><input type="text" name="search_engine" value="Search User name" class="search_init" /></th>
+                                                    <th><input type="text" name="search_browser" value="Search No." class="search_init" /></th>
+                                                    <th><input type="text" name="search_platform" value="Search Date" class="search_init" /></th>
+													<th><input type="text" name="search_platform" value="Search no of people" class="search_init" /></th>
+														<th><input type="text" name="search_platform" value="Search time" class="search_init" /></th>
+															<th><input type="text" name="search_platform" value="Search extra request" class="search_init" /></th>
+                                                    
+                                                   
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script>
+                                        	var asInitVals = new Array();			
+											$(document).ready(function() {
+												var oTable = $('#example').dataTable( {
+													"oLanguage": {
+														"sSearch": "Search all columns:"
+													}
+												} );
+												
+												$("tfoot input").keyup( function () {
+													/* Filter on the column (the index) of this element */
+													oTable.fnFilter( this.value, $("tfoot input").index(this) );
+												} );
+												
+												
+												
+												/*
+												 * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
+												 * the footer
+												 */
+												$("tfoot input").each( function (i) {
+													asInitVals[i] = this.value;
+												} );
+												
+												$("tfoot input").focus( function () {
+													if ( this.className == "search_init" )
+													{
+														this.className = "";
+														this.value = "";
+													}
+												} );
+												
+												$("tfoot input").blur( function (i) {
+													if ( this.value == "" )
+													{
+														this.className = "search_init";
+														this.value = asInitVals[$("tfoot input").index(this)];
+													}
+												} );
+											} );
+
+                                        </script>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+									</div>
 						
-						
-						</h3>
-                        
-
-
-
 <?php
 include 'part2.php';
 ?>

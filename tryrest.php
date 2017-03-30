@@ -41,11 +41,15 @@ if($email=="")
 <script type="text/javascript">
     function initialize() {
        <?php
-			$obj=new database();
-			$res=$obj->getrestDetail($restid);
+		//	$obj=new database();
+		//	$res=$obj->getrestDetail($restid);
           
+         $con=mysql_connect('localhost','root','');
+          mysql_select_db('lazeezo',$con);
           
-            while ($row=mysqli_fetch_array($res)) {
+          $res=mysql_query("select * from restaurant_tbl where rest_id='$restid' ",$con);
+           
+            while($row=mysql_fetch_assoc($res)) {
 				
 				$fk_cat_id=$row["fk_cat_id"];
 				$owner_email=$row["owner_email"];
@@ -68,7 +72,7 @@ if($email=="")
 				
 				echo $row["latitude"];
 				echo $row["longitude"];
-              echo 'var latlng = new google.maps.LatLng('.$lat1.','.$long1.');';
+              echo 'var latlng = new google.maps.LatLng('.$row["latitude"].','.$row["longitude"].');';
 			  
 			  
             }
