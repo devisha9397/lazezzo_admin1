@@ -80,7 +80,7 @@ include 'part1.php';
 																if(isset($_POST["btnadd"]))
 																{
 																	$menu_id="NULL";
-																	$menupic_path="menuphotos/".$_FILES["txtofferphoto"]["name"];
+																	$menupic_path="images/".$_FILES["txtofferphoto"]["name"];
 																	$ext=pathinfo($menupic_path,PATHINFO_EXTENSION);
 																	//$fk_event_id=0;
 																	if($ext=="jpg" || $ext=="jpeg" || $ext=="png")

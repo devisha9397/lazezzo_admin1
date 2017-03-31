@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html  lang="en"  prefix="og: http://ogp.me/ns#" >
+<head>
+    <meta charset="utf-8" />
+    <meta content="origin" name="referrer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+
+    <link rel="preconnect" href="//b.zmtcdn.com" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="tr" href="https://www.zomato.com/tr/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="es" href="https://www.zomato.com/es/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="pt" href="https://www.zomato.com/pt/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="id" href="https://www.zomato.com/id/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="cs" href="https://www.zomato.com/cs/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="sk" href="https://www.zomato.com/sk/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="pl" href="https://www.zomato.com/pl/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="it" href="https://www.zomato.com/it/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+    <link rel="alternate" hreflang="vi" href="https://www.zomato.com/vi/photos/pv-res-111895-r_NDYyOTM5NjU2NT" />
+
+    <title>Photos for 650 - The Global Kitchen, Ambavadi on Zomato</title>
+    <meta name="description" content="Photos for 650 - The Global Kitchen, Ambavadi on Zomato" />
+    <meta name="robots" content="NOODP,NOYDIR" />
+            <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, initial-scale=1">
+    
+    
+        <meta name="robots" content="noindex">
+    
+    
+        <link rel="icon" type="image/png" href="https://www.zomato.com/images/logo/zomato_favicon5.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://www.zomato.com/images/logo/zomato_favicon5.png" />
+
+        
+
+        <meta name='yandex-verification' content='4e4b1f7d1bc34e52' />
+    <meta name="p:domain_verify" content="ff64c9ade03e7fb418904bb99079a071"/>
+
+                        <meta name="twitter:card" content="photo">
+            <meta name="twitter:site" content="@zomato">
+            <meta name="twitter:creator" content="@zomato">
+            <meta name="twitter:title" content="650 - The Global Kitchen - Ambavadi">
+            <meta name="twitter:image" content="https://b.zmtcdn.com/data/pictures/5/111895/e97ebb009b25496f58052f297b98cad1.jpg">
+            <meta name="twitter:app:url:iphone" content="zomato://pv/r_NDYyOTM5NjU2NT"/>
+            <meta name="twitter:app:url:ipad" content="zomato://pv/r_NDYyOTM5NjU2NT"/>
+            <meta name="twitter:app:url:googleplay" content="http://zoma.to/pv/r_NDYyOTM5NjU2NT"/>
+            
+    <meta name="twitter:app:name:iphone" content="Zomato"/>
+    <meta name="twitter:app:id:iphone" content="434613896" />
+    <meta name="twitter:app:name:ipad" content="Zomato" />
+    <meta name="twitter:app:id:ipad" content="434613896" />
+    <meta name="twitter:app:id:googleplay" content="com.application.zomato" />
+    <meta name="twitter:app:name:googleplay" content="Zomato" />
+    <meta name="twitter:app:country" content="in">
+        <meta property="fb:app_id" content="288523881080"/>
+                    <meta property="og:type" content="zomatocom:photo"/>
+                <meta property="og:title" content="650 - The Global Kitchen - Ahmedabad"/>
+                <meta property="og:image" content="https://b.zmtcdn.com/data/pictures/5/111895/e97ebb009b25496f58052f297b98cad1.jpg">
+                <meta property="og:url" content="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?ztype=photo&zid=r_NDYyOTM5NjU2NT&zsource=facebook"/>
+                <meta property="og:description" content="For the love of food">
+                <meta property="og:site_name" content="Zomato"/>
+                                    <meta property="al:web:should_fallback" content="false" />
+                <meta property="al:ios:url" content="zomato://pv/r_NDYyOTM5NjU2NT" />
+                <meta property="al:ios:app_store_id" content="434613896" />
+                <meta property="al:ios:app_name" content="Zomato" />
+                <meta property="al:android:url" content="zomato://pv/r_NDYyOTM5NjU2NT" />
+                <meta property="al:android:app_name" content="Zomato" />
+                <meta property="al:android:package" content="com.application.zomato" />
+                <meta property="al:windows_phone:url" content="zomato://pv/r_NDYyOTM5NjU2NT" />
+                <meta property="al:windows_phone:app_id" content="a00f4816-19b0-4bd8-a554-8f0172151cb3" />
+                <meta property="al:windows_phone:app_name" content="Zomato" />
+
+    
+
+    <script type="text/javascript">
+            </script>
+
+        <link rel="stylesheet" type="text/css" href="https://static.zmtcdn.com/gencss/t-fce05e705b469d889fdc20033ca4cdb8/l-H4sIAAAAAAAAA0tKLE7Vz0nVTS_KTNFLLi7WqcrPTUosKYawi0sSSzKTwezi1NzEPCBHH8YAiQIAP2LJTT4AAAA/h-cfcc4e33f571491866a64f00fea18d76" />
+    
+        <script type="text/javascript"></script>        <script type="text/javascript">
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+            // t3 => web/restaurants
+            // t7 => aggregate
+            // t4 => country
+            // t5 => international
+            // t6 => iframe
+            // t2 => business + nye
+
+
+                            ga('create', {
+                    trackingId: 'UA-19617341-15',
+                    cookieDomain: 'auto',
+                    name: 'city'
+                });
+                ga('city.send', 'pageview');
+            
+                            ga('create', {
+                    trackingId: 'UA-19617341-30',
+                    cookieDomain: 'auto',
+                    name: 'country'
+                });
+                ga('country.send', 'pageview');
+            
+            ga('create', {
+                trackingId: 'UA-19617341-21',
+                cookieDomain: 'auto',
+                name: 'global'
+            });
+
+            
+            ga('global.set', 'dimension1', false);
+            ga('global.set', 'dimension2', "India");
+            ga('global.set', 'dimension3', "Ahmedabad");
+            ga('global.set', 'dimension4', "Others");
+            ga('global.send', 'pageview');
+
+
+            
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
+            <script src="//www.google-analytics.com/cx/api.js"></script>
+        <script>
+            function utmx_section(){}function utmx(){}(function(){var
+            k='64651952-4',d=document,l=d.location,c=d.cookie;
+            if(l.search.indexOf('utm_expid='+k)>0)return;
+            function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+            indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+            length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+            '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+            '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+            '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+            valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+            '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+        </script>
+        <script>
+            window.google_experiments = {};
+            window.google_experiments.ID = 'FQnzc5UZQdSMS6ggKyLrqQ';
+            cv = cxApi.getChosenVariation(window.google_experiments.ID);
+            cxApi.setChosenVariation(cv, window.google_experiments.ID);
+        </script>
+        <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1466145233705476');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1466145233705476&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
+
+        <script type="text/javascript">
+        window.___gcfg = {
+            isSignedOut: true,
+            parsetags: 'explicit',
+            lang: 'en'
+        };
+
+        CITY_REDIRECT = 0;COLLECTION_CITY_REDIRECT = 0;
+        var zomato = zomato || {};
+        HOST = "https://www.zomato.com/";
+        CDN = "https://b.zmtcdn.com/";
+        JS_CDN_PATH = "https://static.zmtcdn.com/genjs/v2/cl-en/";
+        CITY_ID = "11";
+        USER_ID = "";
+        COOKIE_DOMAIN = "zomato.com";
+	//  ADREF = "";
+        CITY_URL = "ahmedabad/";
+        LANG = "en";
+        IS_ZOMATO_USER = "";
+
+        window.howdy = {
+            'm': ""
+        }
+
+        window.fbst = {
+            APP_ID: '288523881080',
+            SOURCE_FB: false,
+            SOURCE_FB_CODE: false,
+            IS_FB_CONNECTED: false,
+            CONNECTED_FB_ID: false        }
+
+        window.gplus = {
+            CLIENT_ID: '442739719837.apps.googleusercontent.com',
+            PROMPT_TYPE: 'force',
+            IS_GPLUS_CONNECTED: false,
+        }
+
+        zomato.documentReady = zomato.documentReady || function() {};
+        zomato.UnitSystem = "METRIC";
+        zomato.distanceUnit = "km";
+        zomato.csrft = "d7ae29c8b507af99b91d54729724ffcd";
+
+        var FLOADING_IMG_SRC = 'https://b.zmtcdn.com/images/floading.gif';
+
+        var IS_BOT = '0';
+        var ab_version_map = [];
+
+    </script>
+
+    
+    <!--[if IE 8]>
+    <script type="text/javascript" src="https://b.zmtcdn.com/application/javascript/respond.min.js"></script>
+    <script type="text/javascript" src="https://b.zmtcdn.com/application/javascript/pie.js"></script>
+    <![endif]-->
+</head>
+<body class="bd-txt-bg is-responsive en"  >
+
+            
+    <script>dataLayer = [];</script>
+
+    <div class="ghboxcontainer"  style="visibility: hidden; display: none;"><div id="ghbox"></div></div>
+
+    
+        
+        
+<div id="sticky_header" class="ui sticky">
+<header class="header  breadcrumb-present" id="header">
+        <div class="mini-header">
+        <div class="wrapper">
+            <div class="row mini-header__breadcrumb">
+                <div class="col-l-10 col-m-10">
+                    <ol itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                    class="ui mini breadcrumb">
+                        <span>
+                            <a href="https://www.zomato.com" itemprop="item" class="tduh section home">
+                                <span itemprop="name" class="grey-text">Home
+                                </span>
+                            </a>
+                        </span>
+                        <meta itemprop="position" content="1" />
+                    </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="ui mini breadcrumb ">
+                                <div class="left"> <i class="right angle tiny icon"></i> 
+                                </div>
+                                <span>
+                                    <a href="https://www.zomato.com/ahmedabad/" itemprop="item">
+                                        <span itemprop="name" class="tduh grey-text">Ahmedabad</span>
+                                    </a>
+                                </span>
+                                <meta itemprop="position" content="2" />
+                            </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="ui mini breadcrumb ">
+                                <div class="left"> <i class="right angle tiny icon"></i> 
+                                </div>
+                                <span>
+                                    <a href="https://www.zomato.com/ahmedabad/west-ahmedabad-restaurants" itemprop="item">
+                                        <span itemprop="name" class="tduh grey-text">West Ahmedabad</span>
+                                    </a>
+                                </span>
+                                <meta itemprop="position" content="3" />
+                            </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="ui mini breadcrumb ">
+                                <div class="left"> <i class="right angle tiny icon"></i> 
+                                </div>
+                                <span>
+                                    <a href="https://www.zomato.com/ahmedabad/ambavadi-restaurants" itemprop="item">
+                                        <span itemprop="name" class="tduh grey-text">Ambavadi</span>
+                                    </a>
+                                </span>
+                                <meta itemprop="position" content="4" />
+                            </li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="ui mini breadcrumb ">
+                                <div class="left"> <i class="right angle tiny icon"></i> 
+                                </div>
+                                <span>
+                                    <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi" itemprop="item">
+                                        <span itemprop="name" class="tduh grey-text">650 - The Global Kitchen</span>
+                                    </a>
+                                </span>
+                                <meta itemprop="position" content="5" />
+                            </li></ol>
+                </div>
+                <div class="col-l-6 col-m-6 ta-right mini-header__sublinks">
+                                                        </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-l-2 col-s-16 header--logo-container">
+                                <a class="logo--header" href="https://www.zomato.com/ahmedabad" title="Restaurants in India, United Kingdom, UAE, South Africa, Philippines, New Zealand, Qatar &amp; Sri Lanka. Delhi Restaurants, Mumbai Restaurants, Gurgaon Restaurants, London Restaurants, Dubai Restaurants, Bangalore Restaurants, Pune, Abu Dhabi, Colombo, Hyderabad, Kolkata, Chennai, Sharjah, Manila, Auckland, Wellington, Cape Town, Johannesburg Restaurants">
+    <img src="https://b.zmtcdn.com/images/logo/zomato_white.svg" alt="Restaurants in India, United Kingdom, UAE, South Africa, Philippines, New Zealand, Qatar &amp; Sri Lanka. Delhi Restaurants, Mumbai Restaurants, Gurgaon Restaurants, London Restaurants, Dubai Restaurants, Bangalore Restaurants, Pune, Abu Dhabi, Colombo, Hyderabad, Kolkata, Chennai, Sharjah, Manila, Auckland, Wellington, Cape Town, Johannesburg Restaurants"/>
+</a>
+                
+                                    <a href="javascript:void(0)" data-icon="&#57401;" class="header-icon search_btn search-bar-reveal search-required"></a>
+                
+                            </div>
+            <div class="col-l-16 header--search-container">
+                <div class="row clearfix">
+                    <div class="logo-and-hiring flex-shrink-0">
+                                                                                <a class="logo--header" href="https://www.zomato.com/ahmedabad" title="Restaurants in India, United Kingdom, UAE, South Africa, Philippines, New Zealand, Qatar &amp; Sri Lanka. Delhi Restaurants, Mumbai Restaurants, Gurgaon Restaurants, London Restaurants, Dubai Restaurants, Bangalore Restaurants, Pune, Abu Dhabi, Colombo, Hyderabad, Kolkata, Chennai, Sharjah, Manila, Auckland, Wellington, Cape Town, Johannesburg Restaurants">
+    <img src="https://b.zmtcdn.com/images/logo/zomato_header_logo.svg" alt="Restaurants in India, United Kingdom, UAE, South Africa, Philippines, New Zealand, Qatar &amp; Sri Lanka. Delhi Restaurants, Mumbai Restaurants, Gurgaon Restaurants, London Restaurants, Dubai Restaurants, Bangalore Restaurants, Pune, Abu Dhabi, Colombo, Hyderabad, Kolkata, Chennai, Sharjah, Manila, Auckland, Wellington, Cape Town, Johannesburg Restaurants"/>
+</a>
+                                            </div>
+                    <div class="alpha flex-shrink-1">
+                                            </div>
+                    <div class="nav flex-shrink-0">
+                        <div class="right">
+                            <div class="login-navigation" id="login-navigation">
+                                                    <div class="header-link pr10">
+            <a class="header-order-btn order-online ui green button" href="https://www.zomato.com/ahmedabad/order">
+                                    Order Food Online
+                            </a>
+                    </div>
+                        <div class="header-link">
+        <a href="#" class="signin-link header-login-button ui basic button mr0" id="signin-link">Log in</a>
+    </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</div>
+<div id="resp-search-container" class="search-box-area"></div>
+
+<div class="mtop pbot2 wrapper container photov">
+    <div class="clearfix row">
+        <div class="col-l-11">
+            <div class="photov__header clearfix mbot0">
+                                <h1 class="section-title">650 - The Global Kitchen's photo</h1>
+                                <div class="col-l-8 mbot0">
+                    <div class="row">
+                                                    <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi/photos#tabtop">
+                                <span class="left fontsize8" data-icon="@"></span>Back to restaurant photos                            </a>
+                                                    
+                    </div>
+                </div>
+                <div class="col-l-8">
+                    <div class="row">
+                        <div class="uploaded-by grey-text photopage-uploaded-by right">
+                            Uploaded by <b>Zomato</b>                        </div>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-l-11 photo-page-container">
+            <div class="pos-relative clearfix">
+                <div class="col-s-16 ui segment">
+                    <a href="https://www.zomato.com/photos/pv-res-111895-r_NDQ1MDQ2Nzk2MD" class="previous-btn previous control-btn ml10">
+                        <i class="chevron left large icon"></i>
+                    </a>
+                    <div class="big-image ui middle aligned one column centered grid">
+                        <img src="https://b.zmtcdn.com/data/pictures/5/111895/e97ebb009b25496f58052f297b98cad1.jpg" class="ui image column centered brstd" /> 
+                    </div>
+                    <a href="https://www.zomato.com/photos/pv-res-111895-u_2NDc3MzAxMwOTU" class="next-btn next control-btn mr10">
+                        <i class="chevron right large icon"></i>
+                    </a>
+                    <div class="current-data-container col-s-16 ta-center">
+                        <div id="current-caption" data-tags='null'></div>
+                        <div class="left hidden" id="current-with-tags"  data-tags='null'>
+                                                    </div>
+                        <div id="rendered-with-tags">
+                                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="photov__info mbot clearfix">
+                
+                <div class="actn-links photopage-act-btns clearfix mtop0">
+                    <div class="left">
+
+                        <div class="ui labeled button js-btn-like-area">
+                            <div class="ui small labeled button thank-btn js-button-like" data-action="like" data-active="1" data-photo_id="r_NDYyOTM5NjU2NT" data-likes="31">
+                              <div class="compact ui small button " data-icon="f">
+                                                                    <span class="like-text">Like</span>
+                                                                </div>
+                              <div class="ui basic label  stats-thanks js-like-count " data-photo_id="r_NDYyOTM5NjU2NT">
+                                  31                              </div>
+                            </div>  
+                        </div>
+                        <div class="ui labeled button js-btn-comment-area">
+                            <div class="ui small labeled button comment-btn comment-btn-to">
+                                <div class="compact ui small button" data-icon="÷">
+                                    <span class="comment-text">Comment</span>
+                                </div>
+                                <div class="ui basic label stats-comment" aria-label="{{ review_comments_count }} {{ twig_translate_for_attr('zm-review-actions-comments') }}">
+                                    0                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="right">
+                        <button class="ui button compact js-btn-share js-btn-share-default" data-entity-id="r_NDYyOTM5NjU2NT" data-entity-type="PHOTO" data-icon="ß">
+                            Share                        </button>
+                    </div>
+                </div>
+                            </div>
+        </div>
+
+        <div class="col-l-5 col-m-6 mbot hot">
+
+                        
+<div class="top-res-box  ui fluid card pbot">
+        <div class="image">
+            <img src="https://b.zmtcdn.com/data/pictures/5/111895/8ec1fc0b97c1fc95399672b132b52973_top_thumb_620_314.jpg" />
+        </div>
+        <div class="content">
+            <div class="clearfix">
+                <div class="col-s-12">
+                    <div class="header row">
+                        <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi" >
+                                                            <div class="top-res-box-bg" style="background-image: url(https://b.zmtcdn.com/data/pictures/5/111895/8ec1fc0b97c1fc95399672b132b52973_top_thumb_620_314.jpg);">
+                                                            <!--[if lte IE 8]>
+                                    <img class="top-res-box-img" src="https://b.zmtcdn.com/data/pictures/5/111895/8ec1fc0b97c1fc95399672b132b52973_top_thumb_620_314.jpg"/>
+                                <![endif]-->
+                                                                </div>
+                        </a>
+                        <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi" >
+                            <h4 class="" title="650 - The Global Kitchen"><span>650 - The Global Kitchen</span></h4>
+                        </a>
+                    </div>
+                    <div class="res_meta meta row">
+                        <a class="cblack"  href="https://www.zomato.com/ahmedabad/ambavadi-restaurants">
+                            Ambavadi
+                        </a>
+                    </div>
+                </div>
+                <div class="col-s-4">
+                                        <div data-res-id="111895" class="rating-for-111895 rating-div right top-res-box-rating level-7">
+                        4.2
+                    </div>
+                                    </div>
+            </div>
+            <div class="mtop0 description top-res-box-details">
+                <div class="top-res-box-cuisine2">Chinese, Italian, North Indi...</div>
+                                                            <div class="top-res-box-cft mb5">Cost for two: ₹900</div>
+                                                    <div class="clearfix mtop mb5">
+                                                                <div class="left mr10">
+                            <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi/photos" class="left ui compact green basic button">
+                                472 photos
+                            </a>
+                        </div>
+                                                                <div class="left mr10">
+                            <a href="https://www.zomato.com/ahmedabad/650-the-global-kitchen-ambavadi/reviews" class="left ui compact green basic button search-result-reviews">
+                                786 Reviews
+                            </a>
+                        </div>
+                                        <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+                                            <div
+                        id="resinfo-wtt"
+                        aria-label="Add to bookmark"
+                        data-entity-id="111895" data-entity-type="RESTAURANT-WISHLIST"
+                        data-za-events="click" data-za-intent="wishlist.post"
+                        data-res-id="111895" data-in-wtt="false" data-text="true" data-content="Add to bookmark"
+                        class="cursor-pointer ml10 pos-relative  ui basic large label cgrey  act-wishlist animate-pulse-icon tooltip" style="text-align:center !important; margin: 0 0em !important;">
+                        <div class="ui loader mini bookmark-loader"></div>
+                        <span class="text">
+                            Bookmark
+                        </span>
+                    </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var REFERRER = document.referrer;
+</script>
+<footer id="footer" class=" ">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-m-10">
+                <h3 class="footer-top logo--footer" tabindex="0">
+                    <a class="logo--header" href="https://www.zomato.com/ahmedabad" title="Find the best restaurants, cafés, and bars in Ahmedabad">
+    <img src="https://b.zmtcdn.com/images/logo/zomato_logo.svg" alt="Find the best restaurants, cafés, and bars in Ahmedabad" width="60px"/>
+</a>
+
+                </h3>
+            </div>
+                            <div class="col-m-6 ptop0">
+                                            <div class="ui dropdown lang-dropdown">
+  <div class="default text" data-icon="g">English</div>
+  <div class="ml10 right"><i data-icon="&#61655;" class="ui white tiny icon"></i></div>  
+  <div class="vertical menu langbox__dropdown" style="min-width: 100%;">
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=cs&amp;user_lang_change=1" style="padding-left: 28px !important;">Čeština</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=en&amp;user_lang_change=1" style="padding-left: 28px !important;">English</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=es&amp;user_lang_change=1" style="padding-left: 28px !important;">Español</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=id&amp;user_lang_change=1" style="padding-left: 28px !important;">Indonesian</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=it&amp;user_lang_change=1" style="padding-left: 28px !important;">Italian</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=pl&amp;user_lang_change=1" style="padding-left: 28px !important;">Polish</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=por&amp;user_lang_change=1" style="padding-left: 28px !important;">Português (BR)</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=pt&amp;user_lang_change=1" style="padding-left: 28px !important;">Português (PT)</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=sk&amp;user_lang_change=1" style="padding-left: 28px !important;">Slovenčina</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=tr&amp;user_lang_change=1" style="padding-left: 28px !important;">Türkçe</a>
+        	<a class="item" href="https://www.zomato.com/photos/pv-res-111895-r_NDYyOTM5NjU2NT?lang=vi&amp;user_lang_change=1" style="padding-left: 28px !important;">Vietnamese</a>
+      </div>
+</div>                                    </div>
+                    </div>
+
+                <div class="footer_divider"></div>
+        <div class="row">
+            <div class="col-m-4">
+                <h3>About Zomato</h3>
+                <ul class="footer-links--big">
+                    <li>
+                        <a href="https://www.zomato.com/about">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://culture.zomato.com">
+                            Culture
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.zomato.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/careers">
+                            Careers
+                        </a>
+                    </li>
+                    <li class="contact-big-footer-link">
+                        <a href="https://www.zomato.com/contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-m-5">
+                <h3>For Foodies</h3>
+                <ul class="footer-links--big">
+                    <li>
+                        <a href="https://www.zomato.com/policies">
+                            Code of Conduct
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://community.zomato.com">
+                            Community
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/verified">
+                            Verified Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/bloggers">
+                            Blogger Help
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://developers.zomato.com">
+                            Developers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/mobile">
+                            Mobile Apps
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-m-7">
+                <h3>For Restaurants</h3>
+                <div class="row">
+                    <div class="col-m-8">
+                        <ul class="footer-links--big">
+                            <li>
+                                <a href="https://www.zomato.com/addrestaurant">
+                                    Add a Restaurant
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/business">
+                                    Claim your Listing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/business/apps">
+                                    Business App
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/guidelines/merchant">
+                                    Business Owner Guidelines
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://business-blog.zomato.com/">
+                                    Business Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/business/widgets">
+                                    Restaurant Widgets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/business">
+                                    Products for Businesses
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-m-8">
+                        <ul class="footer-links--big">
+                            <li>
+                                <a href="https://www.zomato.com/business/advertise">
+                                    Advertise
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/business/order">
+                                    Order
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/book">
+                                    Book
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/base">
+                                    Base
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.zomato.com/trace">
+                                    Trace
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_divider mt5"></div>
+        <div class="row">
+            <div class="col-m-16"><h3 tabindex="0">Countries</h3></div>
+                                                                    
+                        <div class="col-m-1by5 col-m-4">
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Australia" href="https://www.zomato.com/australia">
+                                Australia
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Brasil" href="https://www.zomato.com/brasil">
+                                Brasil
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Canada" href="https://www.zomato.com/canada">
+                                Canada
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Chile" href="https://www.zomato.com/chile">
+                                Chile
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Czech Republic" href="https://www.zomato.com/czech-republic">
+                                Czech Republic
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
+                        <div class="col-m-1by5 col-m-4">
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in India" href="https://www.zomato.com/india">
+                                India
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Indonesia" href="https://www.zomato.com/indonesia">
+                                Indonesia
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Ireland" href="https://www.zomato.com/ireland">
+                                Ireland
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Italy" href="https://www.zomato.com/italy">
+                                Italy
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Lebanon" href="https://www.zomato.com/lebanon">
+                                Lebanon
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
+                        <div class="col-m-1by5 col-m-4">
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Malaysia" href="https://www.zomato.com/malaysia">
+                                Malaysia
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in New Zealand" href="https://www.zomato.com/newzealand">
+                                New Zealand
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Philippines" href="https://www.zomato.com/philippines">
+                                Philippines
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Poland" href="https://www.zomato.com/poland">
+                                Poland
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Portugal" href="https://www.zomato.com/portugal">
+                                Portugal
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
+                        <div class="col-m-1by5 col-m-4">
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Qatar" href="https://www.zomato.com/qatar">
+                                Qatar
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Slovakia" href="https://www.zomato.com/slovakia">
+                                Slovakia
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in South Africa" href="https://www.zomato.com/southafrica">
+                                South Africa
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Sri Lanka" href="https://www.zomato.com/srilanka">
+                                Sri Lanka
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in Turkey" href="https://www.zomato.com/turkey">
+                                Turkey
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
+                        <div class="col-m-1by5 col-m-4">
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in UAE" href="https://www.zomato.com/uae">
+                                UAE
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in United Kingdom" href="https://www.zomato.com/uk">
+                                United Kingdom
+                            </a>
+                        </li>
+                    </ul>
+                                    <ul class="footer-links--big">
+                        <li>
+                            <a class="pl5" title="Restaurants in United States" href="https://www.zomato.com/united-states">
+                                United States
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
+                    </div>
+        
+        <div class="footer_divider mt5"></div>
+        <div class="row footer_policy_links">
+            <div class="col-m-12">
+                <ul class="footer_horiz_list">
+                   <li>
+                        <a href="https://www.zomato.com/privacy">
+                            Privacy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/conditions">
+                            Terms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/api_policy">
+                            API Policy
+                        </a>
+                    </li>
+                     <li>
+                        <a href="https://www.zomato.com/corporate-social-responsibility">
+                            CSR
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/security">
+                            Security
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zomato.com/directory">
+                            Sitemap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social-container col-m-4">
+                <a target="_blank" href="https://twitter.com/zomato"><div class="social-icons twitter" data-icon="&#x74;"></div></a>
+                <a target="_blank" href="https://www.instagram.com/zomato/"><div class="social-icons instagrm" data-icon="&#x34;"></div></a>
+                <a target="_blank" href="https://www.facebook.com/zomato"><div class="social-icons facebook" data-icon="&#xb6;"></div></a>
+            </div>
+        </div>
+
+        <div class="footer_divider"></div>
+        <div class="footer-bottom row">
+            <div class="footer-msg">
+                                   By continuing past this page, you agree to our <a href='http://www.zomato.com/conditions' rel='nofollow'>Terms of Service</a>, <a href='http://www.zomato.com/cookiepolicy' rel='nofollow'>Cookie Policy</a>, <a href='http://www.zomato.com/privacy' rel='nofollow'>Privacy Policy</a> and <a href='http://www.zomato.com/policies' rel='nofollow'>Content Policies</a>. All trademarks are properties of their respective owners. &copy; 2008-2017 - <a href='http://www.zomato.com'>Zomato</a>&trade; Media Pvt Ltd. All rights reserved.
+                            </div>
+        </div>
+        <a href="https://plus.google.com/104017429609258707097" rel="publisher" class="hidden">Find us on Google+</a>
+    </div>
+</footer>
+<div id="photoviewer_container"></div>
+<div class="clear" id="fb-root"></div>
+
+<script type="text/javascript">
+if (typeof console != "undefined") {
+    console.log("Zomato - For the love of food!");
+    console.log("If looking under the hood is what you like, we\'d love to chat. www.zomato.com/careers");
+}
+</script>
+
+<script type="text/javascript">
+    var zomato = zomato || {};
+    zomato.device = zomato.device || {};
+    zomato.device.isMobile = Boolean();
+    zomato.device.isTablet = Boolean();
+    window.isSearchMobile = false;
+    function loadJSnew(path, func) {
+        var s = document.createElement("script");
+        s.src = path;
+        if (typeof func != 'undefined') {
+            s.onload = func;
+        }
+        document.body.appendChild(s);
+    }
+
+    function loadRest() {
+
+        window._B = window._B || {};
+        $(document).on('zreadyPageScripts', function() {
+                    if(typeof Auth != 'undefined') {
+                if( window.howdy.m == 'facebook' || window.fbst.IS_FB_CONNECTED == true ){
+                    Auth.facebook.loggedin = true;
+                }
+                if ( window.howdy.m == "google" || window.gplus.IS_GPLUS_CONNECTED == true ){
+                    Auth.google.loggedin = true;
+                }
+                if(!window._B.ismobile ){
+                    Auth.doFirstLogin();
+                }
+            }
+        });
+
+        $(document).on('zready', function() {
+        window._B.ismobile = false;window._B.user_device = "desktop";        });
+    }
+
+    function loadjQuery() {
+        loadJSnew("https://static.zmtcdn.com/application/javascript/vendor/require_2.2.0.min.js",function(){
+            require.config({
+                waitSeconds : 30,
+                paths: {
+                    react : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-with-addons.min',
+                    jquery : '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min',
+                    reactDom : '//cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min',
+                    raven : '//cdn.ravenjs.com/3.3.0/raven.min',
+                    adWordRemarketing: "//www.googleadservices.com/pagead/conversion_async"
+                }
+            });
+            require(['jquery'],function($){
+                window.$ = window.jQuery = window.jquery = $;
+                var jscripts = ["https:\/\/static.zmtcdn.com\/genjs\/t-61a3ab4ab5e08c82c20c5899af9cb536\/l-H4sIAAAAAAAAA32S3XqDMAiGb2izF7Md7SQPGhppMbiEtNOrX9TaYQ92Fl4CH39KY56agWJzyW-zDKDSMMRQIOCCOhkGiSeFECgG8ynhjfCeDck9pDVmEF8Y86lHHjEtxBOwBOur5qb5EOhEroT5GA5-C9_JpQytWAA-uyASeNW9fBdMUzN_SFf1FjJyqTI1cPMwzBMLeKMLEXhS6vKhFmbslCRaijeMegA_msDYZ-iwrW0Y9NfCA6xtu0whltHgsRcVm3tkmc7EbFnC_F6UXthzC3sViN5Brf5GOhmeEVLXW_Cc0gG4iHqXdH1se9-_uBadR0ZFOz69k-qhw5KPZi340P_LQFrorq6-R1Bq2Z7cfoXVG7XO2ri-PlMNs3n-WUtJ7HqInrf_TG2CVE_tVI8IU6R5xbpkdHROMKxFzBRpkfwFpRmlhCADAAA\/cl-en\/h-bea2253b28a7798ce772f74b3c764882","https:\/\/static.zmtcdn.com\/genjs\/t-4c03029b5e5dd2c73088bf32e517d1a6\/l-H4sIAAAAAAAAAyvIyC_JD8tMLU8tCs7MS89J1csq1qnKzMssATIAxRAGRB0AAAA\/cl-en\/h-bea2253b28a7798ce772f74b3c764882",2];
+                zomato._loadedScripts = 0;
+                zomato._totalScripts = jscripts[jscripts.length - 1];
+                loadRest();
+                window.onloadScripts = window.onloadScripts || [];
+                require(jscripts);
+                require(window.onloadScripts);
+            });
+                        require(['adWordRemarketing'],function(){
+                /* <![CDATA[ */
+                var google_conversion_id = 955006599;
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+                window.google_trackConversion({
+                    google_conversion_id,
+                    google_custom_params,
+                    google_remarketing_only
+                });
+                /* ]]> */
+            });
+                        
+            
+                require(['raven'],function(Raven){
+                    Raven.config('https://f34d1b6fdb8e400fa09d135b66c2b391@app.getsentry.com/90119').install();
+                });
+
+                    });
+    }
+
+    var zomato = zomato || {};
+    if (window.addEventListener) {
+        window.addEventListener("load", loadjQuery, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onload", loadjQuery);
+    } else {
+        window.onload = loadjQuery;
+    }
+
+</script>
+
+<script>
+            function trackUserAction(data, type){}
+        </script><script type="text/javascript" >
+            var tdata = tdata || {};tdata["regime"] = "-1";tdata["category"] = "0";tdata["adref"] = "";
+            tdata["fbtrack"] = "e72c1bd24a9f8eac03ee26186535cb56";
+            tdata["userid"] = "0";
+            tdata["city_id"] = "11";
+            tdata["res_id"] = "";
+            tdata["ref"] = document.referrer;
+            tdata["page"] = document.location.href;
+
+            if (typeof(userActionType) == "undefined") {
+                var userActionType = "pageview";
+            }
+
+            var iscat = getQueryVariable("category", document.referrer);
+            if (iscat != -1) {
+                tdata["category"] = iscat;
+            }
+
+            function trackUserAction(data, type) {
+                data["type"] = type;
+                var get = "";
+                for(i in data) {
+                    if(data[i] != "")
+                        get += encodeURIComponent(i)+"="+encodeURIComponent(data[i])+"&";
+                }
+                (function(d, s) {
+                    var len = document.querySelectorAll("head > script").length;
+                    len = (len > 0) ? len - 1 : 0;
+                    var js, fjs = d.getElementsByTagName(s)[len];
+                    js = d.createElement(s);
+                    js.src = "https://track.zomato.com/php/tracking.php?"+get;
+                    js.async = "true";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, "script"));
+            }
+
+            function getQueryVariable(variable, query) {
+                var query = query.substring(query.indexOf("?") + 1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (decodeURIComponent(pair[0]) == variable) {
+                        return decodeURIComponent(pair[1]);
+                    }
+                }
+                return -1;
+            }
+
+            </script><script> 
+                trackUserAction(tdata, userActionType);
+            </script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"700b8cfba9","applicationID":"5980739","transactionName":"blFbNhZQWkVWUxVaXFcbehcXRVtbGEAJXEdWRxcSDEE=","queueTime":0,"applicationTime":17,"atts":"QhZMQF5KSRoVUUMJSERJ","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+

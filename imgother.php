@@ -11,7 +11,7 @@ $id=$_REQUEST["id"];
 <center>
 <div class="row">
 
-<img src="otherphotos/<?php echo $id; ?> " height="520px" width="500px">
+<img src="images/<?php echo $id; ?> " height="520px" width="500px">
 </center>		
 
 <br>			

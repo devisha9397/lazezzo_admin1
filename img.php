@@ -9,7 +9,7 @@ $id=$_REQUEST["id"];
 <br>
 <center>
 <div class="row">
-<img src="menuphotos/<?php echo $id; ?> " height="520px" width="500px">
+<img src="images/<?php echo $id; ?> " height="520px" width="500px">
 </center>		
 
 <br>			

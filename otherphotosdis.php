@@ -89,7 +89,7 @@ while($row=mysqli_fetch_array($res))
 	{
 		
         echo '<div class="col-md-4">';
-		echo '<center><a href="imgother.php?id='.$row["otherpic_path"].'"><img src="otherphotos/'.$row["otherpic_path"].'" height="250px" width="250px"></a><br>';
+		echo '<center><a href="imgother.php?id='.$row["otherpic_path"].'"><img src="images/'.$row["otherpic_path"].'" height="250px" width="250px"></a><br>';
 		echo '<br>';
 		echo '<td><a href="otherphotodel.php?id='.$row["other_id"].'"><button type="submit" class="btn btn-danger">
 		Delete</button></a></td>';

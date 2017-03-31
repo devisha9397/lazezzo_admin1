@@ -7,7 +7,7 @@
 	{
 			$menupic_path=$row["menupic_path"];
 	}
-	unlink("menuphotos/".$menupic_path);
+	unlink("images/".$menupic_path);
 	$res1=$obj->menuphotoDel($menuid);
 	
 	if($res1==1)

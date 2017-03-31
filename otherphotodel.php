@@ -7,7 +7,7 @@
 	{
 			$otherpic_path=$row["otherpic_path"];
 	}
-	unlink("otherphotos/".$otherpic_path);
+	unlink("images/".$otherpic_path);
 	
 	$res=$obj->otherphotoDel($other_id);
 	

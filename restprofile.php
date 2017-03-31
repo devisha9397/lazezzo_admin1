@@ -3,6 +3,7 @@ session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
+echo $restid;
 if($email=="")
  {
 	 header('Location:index.php');	 
@@ -66,9 +67,9 @@ if($email=="")
 				$long1=$row["longitude"];
 				$address=$row["rest_add"];
 				
-				echo $row["latitude"];
-				echo $row["longitude"];
-              echo 'var latlng = new google.maps.LatLng('.$lat1.','.$long1.');';
+	//			echo $row["latitude"];
+//				echo $row["longitude"];
+        //      echo 'var latlng = new google.maps.LatLng('.$lat1.','.$long1.');';
 			  
 			  
             }
