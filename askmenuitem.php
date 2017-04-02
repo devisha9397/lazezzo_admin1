@@ -41,66 +41,46 @@ if($email=="")
 <?php
 include 'part1.php';
 ?>
-
-<form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
-  <div class="container-liquid">
-  
-  
-  
-  
-   <div class="row">
-<div class="col-md-4">
-<div class="input-group">
-<label for="exampleInputPassword1"> Add Menu Category</label>
-<input type="text" class="form-control" id="exampleInputEmail1" name="txtcategory" aria-describedby="emailHelp"><br>
-	
-
-</div>
-</div>
-</div>
- 
-  
-  
-  
+<br>
+<br>
+<br>
+<br><br>
 <div class="row">
-<div class="col-md-5">
-<div class="form-group">
-
-<label> How many Items You want to Enter? </label>
-<input type="number" class="form-control" id="exampleInputEmail1" name="txtcnt" aria-describedby="emailHelp"><br>
-
-  </div>
-  </div>
-  </div>
-
-
+<div class="col-md-7 col-md-offset-2">
+<div class="panel panel-info">
+  <div class="panel-heading">Select Cuisine as per your requirement </div>
+  <div class="panel-body">
+  <br>
+  <br>
+   <!-- Single button -->
+   
+   <div class="col-md-offset-2">
+<div class="btn-group btn-group-lg">
+  <a href="addmenuitemcount.php"><button type="button" class="btn btn-primary " >
+    &nbsp;&nbsp;&nbsp; New &nbsp;&nbsp;&nbsp; </button></a></div>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="existingmenuitem.php"><button type="button" class="btn btn-primary " >
+    Existing   </button></a>
   
   </div>
   
-  <center>
-					<div class="form-group">
-					<div class="col-sm-8">
-					<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-					<button type="submit" class="btn btn-success" value="Add" name="btnaddd" >Add</button>
-					</div>
-					<?php
-					
-					if(isset($_POST['btnaddd']))
-					{
-						$cui_id=NULL;
-						$cui_name=$_POST["txtcategory"];
-						$_SESSION["cui_name"]=$cui_name;
-						$obj=new database();
-						$res10=$obj->addcui($cui_id,$restid,$cui_name);
-						$_SESSION["cou"]=$_POST['txtcnt'];
-						
-						
-						header("location:addmenuitems.php");
-					}
-					
-					?>
-					</div>
-					</center>
+  
+<div class="btn-group btn-group-lg">
+  </div>
+  </div>
+ 
+  </div>
+  <br>
+  <br>
+  </div>
+</div>
+</div>
+</div>
+
+
+
 <?php
 include 'part2.php';
 ?>

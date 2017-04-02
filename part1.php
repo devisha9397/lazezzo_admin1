@@ -243,6 +243,7 @@
                                     <a href="editprofile.php"><i class="glyphicon glyphicon-pencil"></i>Edit Profile</a>
 									<a href="restprofile.php"><i class="glyphicon glyphicon-cutlery"></i>Your Restaurant Details</a>
                                     <a href="editrestdetails.php"><i class="glyphicon glyphicon-edit"></i>Edit Restaurant Detalis</a>
+									<a href="changepassword.php"><i class="glyphicon glyphicon-edit"></i>Change Password</a>
                                     <a href="logout.php"><i class="glyphicon glyphicon-log-out"></i>Log out</a>
                                 </nav>
                             </div>

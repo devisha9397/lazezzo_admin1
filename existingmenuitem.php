@@ -1,23 +1,12 @@
-<?php
+ <?php
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
 $email=$_SESSION["email"];
-$cui_name=$_SESSION["cui_name"];
 if($email=="")
  {
 	 header('Location:index.php');	 
  }
-//$cat=$_SESSION["cat"];
-$cou=$_SESSION["cou"];
-
-$obj=new database();
-$res100=$obj->getcuiIdbyname($restid,$cui_name);
-while($row = mysqli_fetch_array($res100)){  
- 
-		$cui_id=$row["cui_id"];
- }  
-
 
 ?>
 
@@ -52,54 +41,47 @@ while($row = mysqli_fetch_array($res100)){
 <?php
 include 'part1.php';
 ?>
+<form method="post" name="form1">
+<div class="row">
+<div class="col-md-4">
+<div class="input-group">
+<label for="exampleInputPassword1">Menu Category</label>
+<select class="form-control" name="txtcategory">
+
+  <?php 
+  	
+  $obj=new database();
+  $res=$obj->getallsubcusines($restid);
+  while($row=mysqli_fetch_array($res))
+  {
+		
+echo '<option   value="'.$row["cui_id"].'">'.$row["cui_name"].'</option>';
 
 
+  }
+?>
+	  </select>
+	
 
-
-
-
- <form class="form-horizontal" method="post" action="addmenuitems.php" enctype="multipart/form-data">
-  <div class="container-liquid">
-  
+</div>
+</div>
+</div>
 <div class="row">
 <div class="col-md-3">
 <div class="form-group">
-   <label> Enter Menu Item </label>
-	<?php
-	//echo $cat;	
-	$i=0;
-	while($i<$cou)
-	{
-    echo'<input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem[]" aria-describedby="emailHelp"><br>';
-	$i++;
-	}
-	?>
-  </div>
-  </div>
-  
-  
-  
- 
-<div class="col-md-8">
+<label> Enter Menu Item </label>
+<input type="text" class="form-control" name="txtmenuitem"><br>
+</div>
+</div>
+
+<div class="col-md-3">
 <div class="form-group">
 
 <label> Enter Item Price </label>
-<?php
-echo '<div class="col-md-5">';
-	$i=0;
-	while($i<$cou)
-	{
-echo'<input type="number" class="form-control" id="exampleInputEmail1" name="txtprice[]" aria-describedby="emailHelp"><br>';
-$i++;
-	}
-	echo '</div>';
-	?>
-	
+<input type="number" class="form-control"  name="txtprice"><br>
 </div>
 </div>
 </div>
-
-
 					<center>
 					<div class="form-group">
 					<div class="col-sm-8">
@@ -108,38 +90,19 @@ $i++;
 					</div>
 					</div>
 					</center>
-</div>					
-				<?php
-					
+
+<?php
+
 					if(isset($_POST["btnadd"]))
 					{
 					
 						$subcui_id="NULL";
-						//$fk_cui_id=$restid;
+						$fk_cui_id=$_POST["txtcategory"];
 						$subcui_name=$_POST["txtmenuitem"];
 						$subcui_price=$_POST["txtprice"];
-						
 						$obj=new database();
-						foreach(array_combine($subcui_name,$subcui_price) as $key=>$value)
-						{
-						// foreach ($item_name as $key => $value and $item_price as $key1 => $value1) {
-						//$res=$obj->addmenuItem();
-						// $grade += $value;
-  
-
-						
-					/*	if (!strlen(trim($_POST['txtmenuitem'])))
-						{
-						echo 'plz enter content ';
-						}*/
-						//else
-						//{
-						//echo $key;
-						//echo $value;
-						//echo $cat;
-						$res=$obj->addsubcui($subcui_id,$cui_id,$key,$value,$restid);
-																
-						if($res==1)
+						$res101=$obj->addsubcui($subcui_id,$fk_cui_id,$subcui_name,$subcui_price,$restid);
+						if($res101==1)
 						{
 																
 						header('location:menuitems.php');
@@ -148,21 +111,14 @@ $i++;
 						{
 						echo "error";
 						}
-						}	
-						//}
 					}
-				?>
+?>					
 					
-
-
-</form>
-
-
+					
+					
 <?php
 include 'part2.php';
-
 ?>
-
 </body>
-
+</form>
 </html>

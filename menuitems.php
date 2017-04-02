@@ -76,7 +76,7 @@ include '2.php';
 ?>
 				
 				<div class="col-md-8 col-md-offset-11">		
-				<a href="addmenuitemcount.php"><button  type="submit" class="btn btn-primary">
+				<a href="askmenuitem.php"><button  type="submit" class="btn btn-primary">
 				<span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button></a>
 				</div>
 

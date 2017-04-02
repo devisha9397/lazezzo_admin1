@@ -444,10 +444,10 @@ class database
 
 	}
 	
-	public function getallsubcusines()
+	public function getallsubcusines($restid)
 	{
 		$con=database::connect();
-		$res=mysqli_query($con,"select * from cusine_tbl");
+		$res=mysqli_query($con,"select * from cusine_tbl where fk_rest_id='$restid'");
 		return $res;
 		database::disconnect();
 
@@ -534,6 +534,36 @@ class database
 			$res=mysqli_query($con,"select * from otherphoto_tbl where other_id='$other_id'");
 			return $res;
 			database::disconnect();
+	}
+	public function addcui($cui_id,$restid,$cui_name)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"insert into cusine_tbl values('$cui_id','$restid','$cui_name')");
+			return $res;
+			database::disconnect();
+	}
+	public function getcuiIdbyname($restid,$cui_name)
+	{
+			$con=database::connect();
+			$res=mysqli_query($con,"select * from cusine_tbl where cui_name='$cui_name' and fk_rest_id='$restid'");
+			return $res;
+			database::disconnect();
+	}
+	
+	public function checkpassword($email,$oldpassword)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from restowner_tbl where owner_email='$email' and password='$oldpassword'");
+		return $res;
+		database::disconnect();
+	}
+	
+	public function changepassword($email,$newpassword)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"update restowner_tbl set password='$newpassword' where owner_email='$email'");
+		return $res;
+		database::disconnect();
 	}
 }
 
