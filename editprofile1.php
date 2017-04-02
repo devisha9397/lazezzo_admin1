@@ -1,6 +1,6 @@
 <?php
 session_start();
-$email=$_SESSION["email"];
+$email=$_SESSION["restowneremail"];
 if($email=="")
  {
 	 header('Location:index.php');	 

@@ -2,7 +2,7 @@
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
-$email=$_SESSION["email"];
+$email=$_SESSION["restowneremail"];
 echo $restid;
 if($email=="")
  {
@@ -37,10 +37,9 @@ if($email=="")
 
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6S9Zli4v_L0pYZbOpDuk1k6fFX0JMqTA&callback=initMap""></script>
 
-<script type="text/javascript">
-    function initialize() {
+
+
        <?php
 			$obj=new database();
 			$res=$obj->getrestDetail($restid);
@@ -63,8 +62,8 @@ if($email=="")
 				$cost=$row["cost"];
 				$highlights=$row["highlights"];
 			
-				$lat1=$row["latitude"];
-				$long1=$row["longitude"];
+				//$lat1=$row["latitude"];
+				//$long1=$row["longitude"];
 				$address=$row["rest_add"];
 				
 	//			echo $row["latitude"];
@@ -75,29 +74,7 @@ if($email=="")
             }
 			
 		?>
-       //var latlng = new google.maps.LatLng(28.535516,77.391026);
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: latlng,
-          zoom: 17
-        });
-        var marker = new google.maps.Marker({
-          map: map,
-          position: latlng,
-          draggable: false,
-          anchorPoint: new google.maps.Point(0, -29)
-       });
-        var infowindow = new google.maps.InfoWindow();   
-        google.maps.event.addListener(marker, 'click', function() {
-          var iwContent = '<div id="iw_container">' +
-          '<div class="iw_title"><b>Location</b> : <?php echo $address; ?></div></div>';
-          // including content to the infowindow
-          infowindow.setContent(iwContent);
-          // opening the infowindow in the current map and at the current marker location
-          infowindow.open(map, marker);
-        });
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+       
 
 
 
@@ -130,9 +107,8 @@ include 'part1.php';
 	<h2>&nbsp;Address :&nbsp;
 	 <b><font size="4"><?php echo $rest_add; ?></font><b></h2>
 
-<div id="map" style="width: 100%; height: 300px;"></div>
-	<?php echo $lat1;
-	echo '<br>'.$long1; ?>
+
+	
  	<h2>&nbsp;Cusine :&nbsp;<b><font size="4"><?php echo $cusines; ?></font><b></h2>
 	<h2>&nbsp;Opening Status :&nbsp;<b><font size="4"><?php echo $opening_status; ?></font><b></h2>
 	<h2>&nbsp;Cost :&nbsp;<b><font size="4"><?php echo $cost; ?></font><b></h2>

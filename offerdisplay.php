@@ -3,7 +3,7 @@ session_start();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 include 'database.php';
 $restid=$_SESSION["restid"];
-$email=$_SESSION["email"];
+$email=$_SESSION["restowneremail"];
 if($email=="")
  {
 	 header('Location:index.php');	 

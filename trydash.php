@@ -2,7 +2,8 @@
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
-$email=$_SESSION["email"];
+$restname=$_SESSION["restname"];
+$email=$_SESSION["restowneremail"];
 if($email=="")
  {
 	 header('Location:index.php');	 

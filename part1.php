@@ -120,7 +120,7 @@
 	 <a href=""><img src="images/<?php
 						//include 'database.php';
 						$obj=new database();
-						$email=$_SESSION["email"];
+						$email=$_SESSION["restowneremail"];
                        $res=$obj->getresrownerdetailbyid($email);                                          																			
 		while($row=mysqli_fetch_array($res))
 		{
@@ -167,7 +167,7 @@
 						<?php 
 
 									$obj2=new database();
-									$res2=$obj2->getfavCount(0,$restid);
+									$res2=$obj2->getfavCount(1,$restid);
 									while($row=mysqli_fetch_array($res2))
 									{
 										echo $row["cnt"];

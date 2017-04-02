@@ -2,7 +2,7 @@
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
-$email=$_SESSION["email"];
+$email=$_SESSION["restowneremail"];
 $cui_name=$_SESSION["cui_name"];
 if($email=="")
  {

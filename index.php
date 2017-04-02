@@ -1,4 +1,3 @@
-
 <?php 
 	session_start();
 ?>	
@@ -68,7 +67,7 @@ $cnt=mysqli_num_rows($res);
 
 		if($cnt==1)
 		{
-			$_SESSION["email"]=$email;
+			$_SESSION["restowneremail"]=$email;
 			
 			while($row=mysqli_fetch_array($res))
 				{
