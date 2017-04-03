@@ -565,6 +565,14 @@ class database
 		return $res;
 		database::disconnect();
 	}
+	
+		public function checkcuisine($restid,$cui_name)
+	{
+		$con=database::connect();
+		$res=mysqli_query($con,"select * from cusine_tbl where fk_rest_id='$restid' and cui_name='$cui_name'");
+		return $res;
+		database::disconnect();
+	}
 }
 
 ?>

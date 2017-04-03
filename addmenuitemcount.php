@@ -33,6 +33,25 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			
+			uname.value="";
+			uname.focus();
+			alert('Menu Category must have Alphabetic characters only');
+			return false;
+	}
+}
+</script>
 </head>
 
 <body>
@@ -52,7 +71,7 @@ include 'part1.php';
 <div class="col-md-4">
 <div class="input-group">
 <label for="exampleInputPassword1"> Add Menu Category</label>
-<input type="text" class="form-control" id="exampleInputEmail1" name="txtcategory" aria-describedby="emailHelp"><br>
+<input type="text" class="form-control" id="exampleInputEmail1" name="txtcategory" onblur="return allLetter(txtcategory);" aria-describedby="emailHelp"><br>
 	
 
 </div>
@@ -91,11 +110,21 @@ include 'part1.php';
 						$cui_name=$_POST["txtcategory"];
 						$_SESSION["cui_name"]=$cui_name;
 						$obj=new database();
+						$res101=$obj->checkcuisine($restid,$cui_name);
+						$cnt101=mysqli_num_rows($res101);
+						if($cnt101==1)
+						{
+								$message = "Menu Category already exists";
+								echo "<script type='text/javascript'>alert('$message');</script>";
+						}
+						else
+						{
 						$res10=$obj->addcui($cui_id,$restid,$cui_name);
 						$_SESSION["cou"]=$_POST['txtcnt'];
 						
 						
 						header("location:addmenuitems.php");
+						}
 					}
 					
 					?>

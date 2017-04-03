@@ -75,7 +75,7 @@ include 'part1.php';
 
 <div class="form-group">
     <label> Restaurant Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $rest_name; ?>"  aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $rest_name; ?>"  aria-describedby="emailHelp" required>
   </div>
   </div>
   </div>
@@ -88,7 +88,7 @@ include 'part1.php';
   
   <label>Area</label>
   <br>
-  <input type="text" list="area"  name="txtarea" value="<?php echo $area;  ?>"/>
+  <input type="text" list="area"  name="txtarea" value="<?php echo $area;  ?>"required/>
   
 <datalist id="area">
   <option>Ahemedabad</option>
@@ -111,7 +111,7 @@ include 'part1.php';
 <div class="col-md-6">
   <div class="form-group">
     <label for="exampleInputPassword1">Address</label>
-	<textarea id="some-textarea" rows="9" cols="10" class="form-control" name="txtaddress">
+	<textarea id="some-textarea" rows="9" cols="10" class="form-control" name="txtaddress" required>
 										
 			<?php echo $rest_add; ?>									
 	</textarea>
@@ -169,7 +169,7 @@ echo '<option '.$selected.'  value="'.$row["cat_id"].'">'.$row["cusines"].'</opt
 <div class="input-group">
 <div class="form-group">
 <label for="exampleInputEmail1">Restaurant Contact No.</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" name="txtrestnumber"  value="<?php echo $rest_number; ?>"  aria-describedby="emailHelp"> 
+    <input type="number" class="form-control" id="exampleInputEmail1" name="txtrestnumber"  value="<?php echo $rest_number; ?>"  aria-describedby="emailHelp" required> 
    
 </div>
 </div>
@@ -197,7 +197,7 @@ echo '<option '.$selected.'  value="'.$row["cat_id"].'">'.$row["cusines"].'</opt
 <div class="input-group">
 <div class="form-group">
 <label for="exampleInputEmail1">Openint Status</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtopeningstatus"  value="<?php echo $opening_status; ?>"  aria-describedby="emailHelp"> 
+    <input type="text" class="form-control" id="exampleInputEmail1" name="txtopeningstatus"  value="<?php echo $opening_status; ?>"  aria-describedby="emailHelp" required> 
    
 </div>
 </div>

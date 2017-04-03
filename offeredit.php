@@ -55,9 +55,7 @@ include 'part1.php';
 															$restid=$row["fk_rest_id"];
 															//$_SESSION["discount_id"]=$discount_id;
 														//	$_SESSION[""]=$discount_id;
-															echo $discount_desc;
-															echo $discount_id;
-															echo $restid;
+															
 															
 														}
 														
@@ -110,16 +108,22 @@ if(isset($_POST["btnupdate"]))
 {
 
 	$discount_desc=$_POST["txtoffer"];
-	
-																
+	if (!strlen(trim($_POST['txtoffer'])))
+	{
+		$message = "Please Enter Content";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+	}
+	else
+	{		
 	$obj=new database();
 	$res=$obj->OfferEdit($discount_id,$restid,$discount_desc);
-	echo $discount_desc;
+	
 	//$cnt=mysqli_num_rows($res);
 	if($res==1)
 	{
 		echo "done";
 		header('location:offerdisplay.php');
+	}
 	}
 }									
 ?>													

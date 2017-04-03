@@ -33,6 +33,21 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
+
+<script type="text/javascript">
+function passid_validation(passid,mx,my)
+{
+	var pl=passid.value.length;
+	if(pl==0 || pl>=my || pl<mx)
+	{
+		alert("password should not be empty/length must be between "+mx+" to "+my);
+		passid.focus();
+		return false;
+	}
+	return true;
+}
+
+</script>
 </head>
 
 <body>
@@ -46,7 +61,7 @@ include 'part1.php';
 ?>
 
 
-<form method="post" action="#">
+<form method="post" action="#" name="form1">
 
 <div class="row">
 <div class="col-md-offset-4">
@@ -67,7 +82,7 @@ include 'part1.php';
 <div class="col-md-5">
 <div class="form-group">
 
- <input type="password" id="inputname" class="form-control" name="txtnew" placeholder="Enter New Password" required autofocus>
+ <input type="password" id="inputname" class="form-control" name="txtnew" placeholder="Enter New Password" onblur="return passid_validation(document.form1.txtnew,5,12);" required autofocus>
 
  </div>
 </div>
@@ -96,7 +111,7 @@ include 'part1.php';
 </div>
 </div>
 </form>
-
+<script src="check-password-1.js"></script>
 <?php
 
 if(isset($_POST["btnadd"]))

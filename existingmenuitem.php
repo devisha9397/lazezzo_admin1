@@ -2,7 +2,7 @@
 session_start();
 include 'database.php';
 $restid=$_SESSION["restid"];
-$email=$_SESSION["email"];
+$email=$_SESSION["restowneremail"];
 if($email=="")
  {
 	 header('Location:index.php');	 
@@ -99,8 +99,23 @@ echo '<option   value="'.$row["cui_id"].'">'.$row["cui_name"].'</option>';
 						$subcui_id="NULL";
 						$fk_cui_id=$_POST["txtcategory"];
 						$subcui_name=$_POST["txtmenuitem"];
+						
 						$subcui_price=$_POST["txtprice"];
 						$obj=new database();
+						if($subcui_name=="")
+						{
+							$message = "Enter menu item name";
+							echo "<script type='text/javascript'>alert('$message');</script>";
+		
+						}
+						else if($subcui_price=="")
+						{
+							$message = "Enter menu item price";
+							echo "<script type='text/javascript'>alert('$message');</script>";
+		
+						}
+						else
+						{
 						$res101=$obj->addsubcui($subcui_id,$fk_cui_id,$subcui_name,$subcui_price,$restid);
 						if($res101==1)
 						{
@@ -110,6 +125,7 @@ echo '<option   value="'.$row["cui_id"].'">'.$row["cui_name"].'</option>';
 						else
 						{
 						echo "error";
+						}
 						}
 					}
 ?>					

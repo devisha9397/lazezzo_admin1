@@ -133,7 +133,7 @@
 	 <a href=""><img src="images/<?php
 						//include 'database.php';
 						$obj=new database();
-						$email=$_SESSION["email"];
+						$email=$_SESSION["restowneremail"];
                        $res=$obj->getresrownerdetailbyid($email);                                          																			
 		while($row=mysqli_fetch_array($res))
 		{

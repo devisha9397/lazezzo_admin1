@@ -94,7 +94,8 @@ include 'part1.php';
 																	
 																if (!strlen(trim($_POST['txtoffer'])))
 																{
-																	echo 'plz enter content ';
+																	$message = "Please Enter Content";
+																	echo "<script type='text/javascript'>alert('$message');</script>";
 																}
 																else
 																{

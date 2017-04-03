@@ -32,6 +32,26 @@ if($email=="")
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
+
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			
+			uname.value="";
+			uname.focus();
+			alert('Name must have Alphabetic characters only');
+			return false;
+	}
+}
+</script>
 </head>
 
 <body>
@@ -61,12 +81,12 @@ include 'part1.php';
 <div class="col-md-4">
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $rest_owner_name; ?>"  aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="exampleInputEmail1" name="txtname"  value="<?php echo $rest_owner_name; ?>" onblur="return allLetter(txtname);" aria-describedby="emailHelp" required>
   </div>
   <br>
   <div class="form-group">
     <label for="exampleInputPassword1">Contact No.</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" name="txtno" value="<?php echo $owner_mob_no; ?>">
+    <input type="number" class="form-control" id="exampleInputPassword1" name="txtno" value="<?php echo $owner_mob_no; ?>" required>
   </div>
   <br>
   
