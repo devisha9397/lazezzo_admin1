@@ -17,7 +17,7 @@ if($email=="")
 <!-- Mirrored from www.extracoding.com/demo/html/adminise/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 09:18:03 GMT -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Adminise - Clean And Corporate Admin Panel Template</title>
+<title>All Orders</title>
 <!--// Stylesheets //-->
 <link href="assets/css/style.css" rel="stylesheet" media="screen" />
 <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen" />

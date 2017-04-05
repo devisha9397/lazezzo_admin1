@@ -24,7 +24,7 @@
 	<span class="circle"></span>
 	<div class="loginone">
     	<header>
-        	<img src="assets/images/logo.png" alt="" />
+        	<img src="assets/images/lazeezo6.png" alt="" />
             <p>Enter your credentials to login to your account</p>
         </header>
         <form method="post" action="#" name="form1">
