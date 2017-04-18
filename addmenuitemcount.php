@@ -16,7 +16,7 @@ if($email=="")
 <!-- Mirrored from www.extracoding.com/demo/html/adminise/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 09:18:03 GMT -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Adminise - Clean And Corporate Admin Panel Template</title>
+<title>MenuItem</title>
 <!--// Stylesheets //-->
 <link href="assets/css/style.css" rel="stylesheet" media="screen" />
 <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen" />
@@ -71,7 +71,7 @@ include 'part1.php';
 <div class="col-md-4">
 <div class="input-group">
 <label for="exampleInputPassword1"> Add Menu Category</label>
-<input type="text" class="form-control" id="exampleInputEmail1" name="txtcategory" onblur="return allLetter(txtcategory);" aria-describedby="emailHelp"><br>
+<input type="text" class="form-control" id="exampleInputEmail1" name="txtcategory" onblur="return allLetter(txtcategory);" aria-describedby="emailHelp" required><br>
 	
 
 </div>
@@ -86,7 +86,7 @@ include 'part1.php';
 <div class="form-group">
 
 <label> How many Items You want to Enter? </label>
-<input type="number" class="form-control" id="exampleInputEmail1" name="txtcnt" aria-describedby="emailHelp"><br>
+<input type="number" class="form-control" id="exampleInputEmail1" name="txtcnt" aria-describedby="emailHelp" required><br>
 
   </div>
   </div>

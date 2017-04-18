@@ -109,8 +109,8 @@ include 'part1.php';
                                                 <tr>
                                                     <th><input type="text" name="search_engine" value="Search User name" class="search_init" /></th>
                                                     <th><input type="text" name="search_browser" value="Search Item" class="search_init" /></th>
-                                                    <th><input type="text" name="search_platform" value="Search Quantity" class="search_init" /></th>
-													<th><input type="text" name="search_platform" value="Search Amount" class="search_init" /></th>
+                                                    <th><input type="text" name="search_platform" value="Search Quantity" class="search_init" style="display: none" /></th>
+													<th><input type="text" name="search_platform" value="Search Amount" class="search_init" style="display: none"/></th>
 														<th><input type="text" name="search_platform" value="Search Date" class="search_init" /></th>
 															<th><input type="text" name="search_platform" value="Search Delivery area" class="search_init" /></th>
                                                     

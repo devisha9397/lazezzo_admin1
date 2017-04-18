@@ -395,7 +395,7 @@ class database
 	public function getAllSubcui1($restid,$page)
 	{
 			$con=database::connect();
-			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid' LIMIT {$page}, 10");
+			$res=mysqli_query($con,"select * from subcui_tbl where fk_rest_id='$restid'  LIMIT {$page}, 10");
 			return $res;
 			database::disconnect();
 	}

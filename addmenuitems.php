@@ -27,7 +27,7 @@ while($row = mysqli_fetch_array($res100)){
 <!-- Mirrored from www.extracoding.com/demo/html/adminise/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 09:18:03 GMT -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Adminise - Clean And Corporate Admin Panel Template</title>
+<title>Add Memuitems</title>
 <!--// Stylesheets //-->
 <link href="assets/css/style.css" rel="stylesheet" media="screen" />
 <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen" />
@@ -43,7 +43,22 @@ while($row = mysqli_fetch_array($res100)){
 <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	
 <![endif]-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test4").keyup(function() {
+    var val = $("#test4").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test4").val("");
+        $("#test4").focus();
+    }
+});
+});
+</script>
+
 </head>
 
 <body>
@@ -66,13 +81,19 @@ include 'part1.php';
 <div class="form-group">
    <label> Enter Menu Item </label>
 	<?php
+	echo '<div class="row">';
+echo '<div class="col-md-10">';
+
 	//echo $cat;	
 	$i=0;
 	while($i<$cou)
 	{
-    echo'<input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem[]" aria-describedby="emailHelp"><br>';
+    echo'<input type="text" class="form-control" id="exampleInputEmail1" name="txtmenuitem[]" aria-describedby="emailHelp" required><br>';
 	$i++;
 	}
+		echo '</div>';
+	echo '</div>';
+
 	?>
   </div>
   </div>
@@ -80,22 +101,24 @@ include 'part1.php';
   
   
  
-<div class="col-md-8">
-<div class="form-group">
 
+<!--<div class="form-group">-->
+<div class="col-md-8">
 <label> Enter Item Price </label>
 <?php
-echo '<div class="col-md-5">';
+echo '<div class="row">';
+echo '<div class="col-md-3">';
 	$i=0;
 	while($i<$cou)
 	{
-echo'<input type="number" class="form-control" id="exampleInputEmail1" name="txtprice[]" aria-describedby="emailHelp"><br>';
+echo'<input type="number" class="form-control" id="test4"  name="txtprice[]" aria-describedby="emailHelp" required><br>';
 $i++;
 	}
 	echo '</div>';
+	echo '</div>';
 	?>
 	
-</div>
+<!--</div>-->
 </div>
 </div>
 

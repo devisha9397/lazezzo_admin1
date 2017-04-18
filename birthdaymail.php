@@ -112,10 +112,10 @@ try {
 	
 	
 	}
-	else if(!(date('m-d') == date('m-d', $time)))
-	{
-		header('location:demo2.php');
-	}
+	//else if(!(date('m-d') == date('m-d', $time)))
+	//{
+		//header('location:demo2.php');
+	//}
 	else
 	{
 		echo 'something went wrong';

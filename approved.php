@@ -46,7 +46,7 @@ include 'part1.php';
 <div class="sec-box">
 
 <header>
-<h2 class="heading">Orders to be Approved</h2>
+<h2 class="heading">Approved Orders</h2>
 </header>
 <div class="contents">
                                     

@@ -10,7 +10,7 @@
                 <header>
                     <!-- Logo Start -->
                     <div class="logo">
-                        <a href=""><img src="assets/images/lazeezo7.png" alt="Adminise" /></a>
+                        <a href="trydash.php"><img src="assets/images/lazeezo7.png" alt="Adminise" /></a>
                     </div>
                     <!-- Logo End -->
                     <!-- Toggle Button Start -->
